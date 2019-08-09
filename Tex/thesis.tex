@@ -1,0 +1,124 @@
+
+% DOCUMENT SETTINGS
+% -----------------
+
+% Document class
+% -------------
+\documentclass[11pt]{report}
+
+% Packages
+% --------
+%	Special characters, like the french ones
+%	----------------------------------------
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern} % load a font with all the characters
+%	Math and Stuff (/text{} in Equation}
+%	------------------------------------	
+	\usepackage{amsmath}
+%	Symbols (Lagrangian)
+%	--------------------
+	\usepackage{amssymb}
+	\usepackage{bbold}
+%	Textcolor
+%	---------	
+	\usepackage{color}
+%	Feynman Diagrams
+%	----------------
+	\usepackage{feynmp-auto}
+%	Wick's Theorem
+%	--------------
+	\usepackage{simplewick}
+%	Item Lists
+%	----------
+	\usepackage{enumerate}
+%	Cancel fraction
+%	---------------
+	\usepackage{cancel}
+%	Hyperlinks (Table of Content)
+%	-----------------------------
+	\usepackage{hyperref}
+	\usepackage{textpos}
+	\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+%	Mathematica Code
+%	----------------
+	\usepackage{listings,xcolor}
+	\lstset{language=Mathematica}
+	\lstset{basicstyle={\sffamily\footnotesize},
+	  numbers=left,
+	  numberstyle=\tiny\color{gray},
+	  numbersep=5pt,
+	  breaklines=true,
+	  captionpos={t},
+	  frame={lines},
+	  rulecolor=\color{black},
+	  framerule=0.5pt,
+	  columns=flexible,
+	  tabsize=2
+	}
+% 	\left, \right multiline shit
+% 	----------------------------
+	\usepackage{breqn}
+%	Make Biblography appear in ToC
+	\usepackage[nottoc,numbib]{tocbibind}
+% 	Graphicen
+	\usepackage{graphicx}
+	
+
+% Macros
+% ------
+	\newcommand{\Lagr}{\mathcal{L}}
+
+	% Horizontale Linie
+	\newcommand{\HRule}{\rule{0.97\linewidth}{0.4mm}}
+	
+%	Matthias Paper
+	\newcommand{\s}{\small}
+	\newcommand{\bu}{{\bar u}}
+	\newcommand{\cD}{{\cal D}}
+	\newcommand{\cO}{{\cal O}}
+	\newcommand{\cP}{{\cal P}}
+	\newcommand{\as}{\alpha_s}
+	\newcommand{\wh}{\widehat}
+	\newcommand{\nn}{\nonumber}
+	\newcommand{\ol}{\overline}
+	\newcommand{\wt}{\widetilde}
+	\newcommand{\ve}{\varepsilon}
+	\newcommand{\IM}{\mbox{\rm Im}}
+	\newcommand{\RE}{\mbox{\rm Re}}
+	\newcommand{\po}{\phantom{00}}
+	\newcommand{\eqn}[1]{(\ref{#1})}
+	\newcommand{\mev}{\mbox{\rm MeV}}
+	\newcommand{\gev}{\mbox{\rm GeV}}
+	\newcommand{\tvs}{\vbox{\vskip 6mm}}
+	\newcommand{\mvs}{\vbox{\vskip 8mm}}
+	\newcommand{\bmvs}{\vbox{\vskip 10mm}}
+	\newcommand{\MSb}{{\overline{\rm MS}}}
+	\newcommand{\aGG}{\langle\alpha_s GG\rangle}
+	\newcommand{\sfrac}[2]{\mbox{$\frac{#1}{#2}$}}
+	\newcommand{\gsim}{~{}_{\textstyle\sim}^{\textstyle >}~}
+	\newcommand{\lsim}{~{}_{\textstyle\sim}^{\textstyle <}~}
+
+
+\setcounter{tocdepth}{5}
+% DOCUMENT BEGIN
+% --------------
+	\begin{document}
+	
+% Chapters
+% --------
+	\include{titlepage}
+	\tableofcontents
+	\include{introduction}
+	\include{fundamentalConcepts}
+	\include{diagram}
+	\include{outlook}
+	\include{acknowledgement}
+	\include{appendix}
+	\bibliographystyle{plain}
+	\bibliography{thesis} 
+
+% DOCUMENT END
+%-------------
+	\end{document}
+

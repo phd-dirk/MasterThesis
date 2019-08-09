@@ -1,0 +1,15 @@
+This is MetaPost, version 1.902 (TeX Live 2014) (kpathsea version 6.2.0)  3 AUG 2015 17:22
+**V-ADiagrams
+(/usr/local/texlive/2014/texmf-dist/metapost/base/mpost.mp
+(/usr/local/texlive/2014/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.005) ) (./V-ADiagrams.mp
+(/usr/local/texlive/2014/texmf-dist/metapost/feynmf/feynmp.mp) [1] [2] [3]
+[4] [5] [6] )
+ 
+Here is how much of MetaPost's memory you used:
+ 320 strings using 4637 characters
+ 1859856 bytes of node memory
+ 923 symbolic tokens
+ 13i,77n,26p,109b,3f stack positions out of 16i,96n,31p,200b,4f
+6 output files written: V-ADiagrams.1 .. V-ADiagrams.6
+

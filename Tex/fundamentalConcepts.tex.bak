@@ -1,0 +1,410 @@
+\chapter{Fundamental Concepts}
+Within this chapter we want to introduce the fundamentals needed for our calculations . Starting with the field of Quantum Chromodynamics (QCD) we introduce elemental interaction methods and yield the needed propagators. Further on we will discuss the for this thesis important process of Renormalisation with the help of the Dimensional Regularisation (DR). Finally we want to give some basic Renormalisation Group Equation (RGE). In the explanations down below we will mainly follow the lecture \cite{j06}.
+
+\section{QCD Basics}
+The fundamental degrees of freedom of Quantum Chromodynamics (QCD) are the matter fields (quarks) and the fields intermediating strong interactions (gluons). The classical Lagrangian density is very similar to the the one given by Quantum electrodynamics (QED)
+\begin{equation}
+	\label{eq:QCDLagrangianDensity}
+	\mathcal{L}_{QCD} = -\frac{1}{4} G^a_{\mu\nu}(x) G^{\mu\nu a}(x) + \sum_A \left[ \frac{i}{2} \bar q^a(x) \gamma^\mu \overleftrightarrow{D}_\mu q^a(x) - m_A \bar q^A(x) q^A(x)\right]
+\end{equation}
+We now want to explain the different parts of the above Lagrangian density. Starting with the field strength tensor $G^a_{\mu\nu}$ corresponding to the gluon field $B^a_\mu(x)$ and defined as
+\begin{equation}
+	G^a_{\mu\nu}(x) \equiv \partial_\mu B^a_\mu(x) - \partial_\mu B^a_\mu (x) + gf^{abc} B^b_\mu(x) B^x_\nu(x).
+\end{equation}
+We are using greek letters for the Lorentz indices, running from 0 to 3 and latin letters $a,b,c = 1, \ldots, 8$ for the colour indices in the adjoint representation of the colour group SU(3). In addition $f^{abc}$ represents the structure constant of the colour group SU(3) satisfying 
+\begin{equation}
+	[t^a,t^b] = i f^{abc}t^c ,
+\end{equation}
+with $t^a$ being the generator of SU(3). The fundamental representation of the generators $t^a$ can be given in terms of the hermitian, traceless, 3x3 Gell-Mann matrices $\lambda^a$
+\begin{equation}
+	t^a = \frac{\lambda^a}{2} \qquad \text{with} \qquad Tr[\lambda^a, \lambda^b]= 2 \delta^{ab}.
+\end{equation}
+Furthermore g is the coupling constant, quantifying the interaction strength between the quarks and gluons and also the gluon self-coupling, which arises due to the non-abelian nature of the gauge group.
+\par
+Regarding the quark fields $q^A_{\alpha,i}(x)$, we used the capitalized letter A as flavour index for the six different flavours up, down, strange, charm, bottom and top. Moreover we use ($\alpha$) as Spinor and (i) as colour indice. Both indices will be written in matrix notation to surpress further indices. Next we need to introduce the Clifford algebra for the $\gamma$-matrices in four space-time dimensions
+\begin{equation}
+	\{\gamma_\mu \gamma_\nu \} \equiv \gamma_\mu \gamma_\nu + \gamma_\mu \gamma_\nu = 2 g_{\mu\nu}\mathbb{1},
+\end{equation}
+where $g_{\mu\nu} \equiv diag(1,-1,-1,-1)$ denotes the Minkowski-metric of the flat spce covariant derivative $D_\mu$ given by
+\begin{equation}
+	D_\mu = \partial_\mu \mathbb{1} - ig \frac{\lambda^a}{2} B^a_\mu.
+\end{equation}
+The bidirectional array $\overleftrightarrow{D}$ implies that the derivates act to the right, as well as with a minus sign to the left side in eq.~(\ref{eq:QCDLagrangianDensity}). Finally $m_A$ is the mass term for a flavour of type A.
+\par
+The QCD Lagrangian was constructed to maintain local SU(3) colour gauge transformations. Employing the Euler-Lagrange equations for the quark and gluon fields yield the classical equations of motion.
+\begin{align}
+	[i\gamma^\mu D_\mu - m_A]q^A(x) = 0 \\
+	[D^\mu, G^a_{\mu\nu}(x)] = -\frac{i}{2}g \sum_A \bar q^A (x) \gamma_\nu \lambda^a q^A (x)
+\end{align} 
+The first equations correpsonds to the Dirac-equations, whereas the second describes the coupling of the gauge field to a matter source. So the QCD Lagrangian descirbes the free Dirac spinors and the non-abelian guage field with their interactions and self-interactions gluon field.	
+\par
+Now we want to perform the quantisation, yielding the needed free propagators (Green's functions) for the quark and the gluon field. If $\Psi(x)$ denotes a generic spinor field the quantum field can be written in terms of creation and annihilation operators
+\begin{equation}
+	\Psi(x) = \int \frac{d^3p}{(2\pi)^3wE(\vec p)} \sum_\lambda [u(\vec p, \lambda) a(\vec p, \lambda) e^{-ipx} + v(\vec p, \lambda) b^\dagger (\vec p, \lambda) e^{ipx}],
+\end{equation}
+where the integration ranges over the positive sheet of the mass hyperboloid $\Omega_+(m) = \{p | p^2=m^2, p^0 > 0\}$ with m being the mass of the quark. The four spinors $u(\vec p, \lambda)$ and $v(\vec p, \lambda)$ are solutions to the free Dirac equation in the momentum space
+\begin{equation}
+	[p\!\!\!/ - m]u(\vec p, \lambda) = 0 \qquad \text{and} \qquad [p\!\!\!/ + m]v(\vec p, \lambda) = 0
+\end{equation}
+with $\lambda$ representing the helicity state of the spinors. Combining the commutation relations, the creation and annihilation operators and the above equations gives us the propagator for the free spinor field
+\begin{equation}
+	\label{eq:quarkPropagator}
+        iS^{(0)AB}_{ij}(x-y) \equiv \langle0|T\{q_i^A(x)\bar q_j^B(y)\}|0\rangle \equiv 
+	\contraction{}{q}{{}^A_i(x)}{q}
+	q_i^A(x)\bar q_j^B(y) = \delta_{ij}\delta^{AB}iS^{(0)}(x-y).
+\end{equation}
+The T operator implies time-ordering of the fields in the curly brackets. The connection line (connecting the two quark fields in the third expression) denotes a contraction (Wick's theorem).
+\par 
+The qunatisation of the gauge fields will be much more cumbersome as the previous one. Applying the canonical quantisation procedure will lead to a loss of covariance of the theory. Consequently we have to add a gauge-fixing term
+\begin{equation}
+	\mathcal{L}_{gf} = -\frac{1}{2a}[\partial^\mu B^a_\mu(x)][\partial^\nu B^a_\nu(x)]
+\end{equation}
+Proceeding with the canonical quantisation, the Fock-space of states has an indefinite metric in QCD. In order to restore unitarity in the physical subspace of the gluons we need a set of massless non-physical fields the so-called Faddeev-Popov ghosts $c^a(x)$ corresponding to 
+\begin{equation}
+	\mathcal{L}_{ghost} = -[\partial^\mu \bar c^a(x) ] \partial_\mu c^a(x) + g f^{abc}[\partial^\mu \bar c^a(x) ] c^b(x) B^c_\mu(x)
+\end{equation}
+Following now the steps of the normal quantisation procedure yields the desired propagators
+        \begin{align}
+		\begin{split}
+                	iD^{(0)ab}_{\mu\nu}(x-y) &\equiv \langle0|T\{B_\mu^a(x)B_\nu^b(y)\}|0\rangle \equiv 
+			\contraction{}{B}{{}^a_\mu(x)}{B}
+			B_\mu^a(x)B_\nu^b(y) \equiv i\delta^{ab}\int\frac{d^4k}{(2\pi)^4}D^{(0)}_{\mu\nu}(k)e^{-ik(x-y)} \\
+                	&= i\delta^{ab}\int\frac{d^4k}{(2\pi)^4}\frac{1}{k^2+i\eta}\left[-g_{\mu\nu}+(1-a)\frac{k_\mu k_\nu}{k^2+i\eta}\right]e^{-k(x-y)}
+		\end{split} \\
+		\begin{split}
+		i\widetilde{D}^{(0)ab}(x-y) &\equiv \langle 0 \ T \{ c^a(x) c^b(y)\}|0\rangle \equiv 
+		\contraction{}{c}{{}^a(x)}{c}
+		c^a(x)c^b(y) \equiv i \delta^{ab} \int \frac{d^4}{(2\pi)^4} \widetilde{D}^(0) (q) e^{-q(x-y)} \\
+		&= i\delta^{ab} \int \frac{d^4 q}{(2\pi)^4} \frac{-1}{(q^2 + i0)}e^{-iq(x-y)}
+		\end{split}.
+        \end{align}
+	
+\section{Dimensional Regularisation}
+As we want to renormalize multi-loop Feynman diagrams, we need a prescription to adress the problem of regulating the divergencies, i.e. in our case manifesting them in form of $1/\epsilon$ poles. For our prospect we want to use the method of dimensional regularisation (DR). The main advantages of DR is, that it preservers gauge invariance and is the method implemented most easily. 
+\par
+Using DR we want to perform our calculations in an arbitrary space-time dimension D, instead of the normal spac-time dimension 4. The dimension D shall be an integer for us, but can also be non-integer. Using this prescription the divergencies will appear as poles of the resulting expression when we perform the limes of $D \rightarrow 4$. For future calculations we want to define our arbitrary dimension D as 
+\begin{equation}
+	D = 4 - 2\epsilon
+\end{equation}
+\par
+Working into D-dimensions we also have to employ a different Dirac-algebra for arbitrary D dimension. The defining equation has the same form as in 4 dimensions
+\begin{equation}
+	\label{eq:diracAlgebraDefining}
+	\{ \gamma_\mu, \gamma_\nu \} \equiv \gamma_\mu \gamma_\nu + \gamma_\mu \gamma_\nu = 2 g_{\mu\nu} \mathbb{1},
+\end{equation}
+but with the space-time indices $\mu$ and $\nu$ running from $0,1,2,\ldots,D-1$. Furthermore we can easily check for the trivial relations
+\begin{equation}
+	g_{\mu\nu}g^{\mu\nu} = D \qquad \text{and} \qquad \gamma_\mu \gamma^\mu = D \mathbb{1}
+\end{equation}
+to be true. The first one clearly is just the trace over the $D\otimes D$ sized metric tensor product and the second can be easily shown by combining the metrix tensor product with the defining equation eq.~(\ref{eq:diracAlgebraDefining}). In addition to the trivial relations we need to implement some anti-commutation rules for the $\gamma$-matrices.
+\begin{align}
+	\gamma_\mu\gamma_\nu\gamma^\mu &= (2g_{\mu\nu} - \gamma_\nu \gamma_\mu)\gamma^\mu = (2-D)\gamma_\nu \\
+	\gamma_\mu\gamma_\nu\gamma_\lambda\gamma^\mu &= 2\gamma_\lambda \gamma_\nu - \gamma_\nu \gamma_\mu \gamma_\lambda \gamma^\mu = 4g_{\nu\lambda} \mathbb{1} + (D-4)\gamma_\nu\gamma_\lambda \\
+	\gamma_\mu\gamma_\nu\gamma_\lambda\gamma_\rho\gamma^\mu &= -2\gamma_\rho\gamma_\lambda\gamma_\nu + (4-D)\gamma_\nu\gamma_\lambda\gamma_\rho	
+\end{align}
+In general we will perform our Dirac-algebra with a Mathematica package named Tracer.m. The codes we used will be displayed in app.(\ref{sec:MathematicaCode}). \\
+Next we have to regard strings over $\gamma$-matrices. Using the cyclicity of traces, the anti-commutating rule in eq.~(\ref{eq:diracAlgebraDefining}) and the fact that odd numbers of $\gamma$-matrices in a trace will vanish we get for 
+\begin{equation}
+	Tr[\gamma_\mu\gamma_\nu] = Tr[\gamma_\nu\gamma_\mu] = \frac{1}{2}Tr[\gamma_\mu \gamma_\nu + \gamma_\nu \gamma_\mu] = g_{\mu\nu} Tr[\mathbb{1}] = 4g_{\mu\nu},
+\end{equation}
+where we arbitraly set $Tr[\mathbb{1}] \equiv 4$. We also could take another choice as $Tr[\mathbb{1}] \equiv 2^{D/2}$, which is would be the dimension of the irreducible and matches our choice at $D=4$. Different choices yield different additional constants, which can be absorbed into the renormalisation. Consequently we have to define a renormalization scheme. As the trace with three $\gamma$-matrices vanishes (odd number of $\gamma$-matrices) we want to regard the trace
+\begin{equation}
+	\begin{split}
+		Tr[\gamma_\mu\gamma_\nu\gamma_\lambda\gamma_\omega] &= 8g_{\mu\nu}g_{\lambda\omega} - Tr[\gamma_\nu\gamma_\mu\gamma_\lambda\gamma_\omega] = 8g_{\mu\nu}g_{\lambda\omega} - 8g_{\mu\lambda}g_{\nu\omega} + Tr[\gamma_\nu\gamma_\lambda\gamma_\mu\gamma_\omega] \\
+		&= 8g_{\mu\nu}g_{\lambda\omega} - 8g_{\mu\lambda}g_{\nu\omega} + 8g_{\mu\omega}g_{\nu\lambda} - Tr[\lambda_\nu \gamma_\lambda \gamma_\omega \gamma_\mu] 
+	\end{split}
+\end{equation}
+Hence for the general trace 
+\begin{equation}
+	Tr[\gamma_\mu\gamma_\nu\gamma_\lambda\gamma_\omega] = 4(g_{\mu\nu}g_{\lambda\omega} - g_{\mu\lambda}g_{\omega\lambda} + g_{\mu\omega} g_{\nu\lambda}).
+\end{equation}
+\par
+For now we only regarded the $\gamma$-matrices excluding the chirality operator $\gamma_5$, which causes an intricate problem of DS. In four dimension $\gamma_5$ is defined as
+\begin{equation}
+	\gamma_5 \equiv \frac{i}{4!} \epsilon_{\mu\nu\lambda\omega} \gamma^\mu \gamma^\nu \gamma^\lambda \gamma^\omega
+\end{equation}  
+and anti-commutes with all other $\gamma$-matrices, while statisfying
+\begin{equation}
+	\label{eq:gamma5Properties}
+	\{\gamma_5, \gamma_\mu\} = 0, \qquad (\gamma_5)^2 = \mathbb{1} \qquad \text{and} \qquad Tr[\gamma_5 \gamma_\mu \gamma_\nu \gamma_\lambda \gamma_\omega] = 4i\epsilon_{\mu\nu\lambda\omega}.
+\end{equation}
+Now we could define $\gamma_5$ anti-commutating with all other $\gamma$-matrices for arbitrary dimension D. However this is not consistant with the cyclicity of the trace. In the following we want to show how this inconsitency shows up. To compute the trace over $\gamma_5$ we regard 
+\begin{equation}
+	Tr[\gamma_5\gamma_\mu\gamma^\mu] = DTr[\gamma_5] = -Tr[\gamma_\mu \gamma_5 \gamma^\mu] = -DTr[\gamma_5]
+\end{equation}
+Thus $DTr[\gamma_5] = 0$ and consequently $Tr[\gamma_5] = 0$ except eventually at $D=0$. With the same procedure we can derive
+\begin{equation}
+	(D-2)Tr[\gamma_5\gamma_\mu\gamma_\nu] = 0 \qquad \text{and} \qquad (D-4)Tr[\gamma_5 \gamma_\mu \gamma_\nu \gamma_\lambda \gamma_\omega] = 0.
+\end{equation}
+Hence from the second of the relations we could conclude that $Tr[\gamma_5\gamma_\mu\gamma_\nu\gamma_\lambda\gamma_\omega] = 0$ for all D, which is in conflict with eq.~(\ref{eq:gamma5Properties}) for the case $D=4$. Therefore we either have to give up the property that our expressions can be continued analytically from arbitraty D to 4 or we have to abandon the $\gamma_5$ anti-commuation. 
+\par
+To deal with these inconsistencies we want to shortly strike to possible solutions. First is the Hooft and Veltman scheme (HF scheme). They defined $\gamma_5$ such that it anti-commutes with the 4-dimensional subset of $\gamma$-matrices and commutes with the remaining (D-4) dimensional ones. Second would be the naive scheme (NDR scheme). If we only have even numbers of $\gamma_5$ appearing in traces we can simply stich to the conventional use. 
+\par 
+Using DR we will notice that we are confronted with a special type of Integrals, so called \textit{Feyman Integrals}. In the following we want to derive a method of solving those integrals.
+	
+\subsection*{Feynman integrals}
+\label{sec:FeynmanIntegrals}
+The Feynman integral of most interest has two denomniators, consequently we will label it with a two and define it as
+	\begin{equation}
+		\label{eq:I2Integral}
+		\begin{split}
+			I_2(q) &\equiv \mu^{2\epsilon} \int \frac{d^Dp}{(2\pi)^D} \frac{1}{p^2(q-p)^2} \\
+			&\overset{!}{=} \frac{i}{(4\pi)^2} \left(\frac{4 \pi \mu^2}{-q^2}\right)^\epsilon \frac{\Gamma(1-\epsilon)^2}{\Gamma(2-2\epsilon)} \Gamma(\epsilon) \\
+			&= \frac{i}{(4\pi)^2} \frac{1}{\epsilon} + \mathcal{O}(1).
+		\end{split}
+	\end{equation}
+	We now want to derive the given result in the above equation. Therefore we have to introduce \textbf{Feymans's parametrization}.	
+	\begin{equation}
+		\label{eq:FeymanParameterization}
+		\frac{1}{a^\alpha b^\beta} = \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \int_0^1 dx \frac{x^{\alpha-1}(1-x)^\beta-1}{[ax + b(1-x)]^{\alpha+\beta}}
+	\end{equation}
+	In our case the variables are given by
+	\begin{equation}
+		a = (q-p)^2, \qquad b = p^2, \qquad \alpha = 1, \qquad \beta = 1.
+	\end{equation}
+	Therefore Eq. (\ref{eq:FeymanParameterization}) can be written as 
+	\begin{equation}
+		\begin{split}
+			\hat I_2(q) &= \frac{1}{p^2(q-p)^2} \\
+			&= \int_0^1 dx \frac{1}{[(q-p)^2x + p^2(1-x)]^2} \\
+			&= \int_0^1 dx \frac{1}{[q^2-2pqx+p^2]^2} \\
+			&= \int_0^1 dx \frac{1}{[(p-qx)^2 + q^2x - q^2x^2]^2},
+		\end{split}
+	\end{equation}
+	where we completed the square in the last line.
+	Substituting
+	\begin{equation}
+		k = p-qx \qquad p=k+qx \qquad \frac{dp}{dk} = 1
+	\end{equation}
+ 	keeps the equation simple. Inserting the new expression in our integral yields
+	\begin{equation}
+		\begin{split}
+			I_2(q) &= \mu^{2\epsilon} \int \frac{d^Dk}{(2\pi)^D} \int_0^1 dx \frac{1}{[k^2 + x(1-x)q^2]^2} \\
+			&= \mu^{2\epsilon} \int \frac{d^Dk}{(2\pi)^D} \int_0^1 dx \frac{1}{[k-a]^2},
+		\end{split}
+	\end{equation}  	
+	where we subtitutet $a = -x(1-x)q^2$. Now we want to perform a \textbf{Wick rotation}, which rotates the time axis $k^0$ into an imaginary time direction $ik^D$. The idea is to get the same sign for our Minkowski metric. Hence 
+	\begin{equation}
+		\begin{split}	
+			k^0 &\rightarrow ik^D \Rightarrow \frac{dk^D}{dk^0} = i \\ 
+			k^2 = (k^0)^2 - \vec k^2 &\rightarrow -(k^D)^2 - \vec k^2,
+		\end{split}
+	\end{equation}
+	and for our integral
+	\begin{equation}
+		\begin{split}
+			I_2(q) &= - \mu^{2\epsilon} \int^1_0 dx \int \frac{d^0k d^1k \cdots d^{D-1}k}{(2\pi)^D} \frac{1}{[(k^0)^2 - \sum_{i=1}^{D}(k^i)^2 - a^2]^2} \\
+			&\rightarrow i\mu^{2\epsilon} \int^1_0 dx\int \frac{d^1kd^2k \cdots d^Dk}{(2\pi)^D} \frac{1}{[k^2+a^2]^2} \\
+			&= i \mu^{2\epsilon} \int^1_0 dx \int \frac{d^Dk}{(2\pi)^D}\frac{1}{[k^2+a^2]^2} \\
+			&= i \mu^{2\epsilon} \int^1_0 dx \int \frac{d^Dk}{(2\pi)^D}\frac{1}{[k^2+a^2]^2}.
+		\end{split}
+	\end{equation}
+	Being done with the Wick rotation, we now can solve the integral over k with a spherical integration. Splitting up the integral into a spherical and a radial part yields 
+	\begin{equation}	
+		I_2(q) = i\mu^{2\epsilon} \int_0^1 dx \int_0^\infty dk \int d\Omega \frac{k^{D-1}}{[k^2+a^2]^2},
+	\end{equation}
+	whereas the spherical integration is given by
+	\begin{equation}
+		S_D = \frac{2 \pi^{\frac{D}{2}}}{\Gamma(\frac{D}{2})} 
+	\end{equation}
+	After solving the spherical part we will us \textbf{Eulers beta-function} 
+	\begin{equation}
+		B(u,v) \equiv \int_0^1 z^{u-1} (1-z)^{v-1} dy = \frac{\Gamma(u) \Gamma(v)}{\Gamma(u+v)}
+	\end{equation}
+	to compute the radial one. Substituting
+	\begin{equation}
+		\begin{split}
+			k^2 = a^2 \frac{(1-z)}{z} \Rightarrow k = \sqrt{a^2 \frac{(1-z)}{z}} \\
+			\frac{dk}{dz} = \sqrt{a^2} \frac{1}{2} \sqrt{\frac{z}{(1-z)}}\left(\frac{-1}{z^2}\right) = - \sqrt{\frac{a^2}{2}} \sqrt{\frac{1}{(1-z)z^4}}
+		\end{split}
+	\end{equation}
+	gives us the needed expressions for Eulers beta-function
+	\begin{equation}
+		\begin{split}
+			k^{D-1} &= \left(\frac{a^2(1-z)}{z}\right)^{\frac{D}{2}-\frac{1}{2}} \\
+			\frac{1}{[k^2+a^2]^2} &= \frac{1}{\left[\frac{a^2(1-z)}{z}+a^2\right]^2} = \left(\frac{z}{a^2}\right)^2.
+		\end{split}
+	\end{equation}
+	Plugging everything together gives us 
+	\begin{equation}
+		\begin{split}
+			I_2(q) &= \frac{i 2 \pi^{\frac{D}{2}} \mu^{2\epsilon}}{(2\pi)^D} (-a^2)^{\frac{D}{2}-2} \int_0^1 dx \frac{\Gamma(2-\frac{D}{2}) \Gamma(\frac{D}{2})}{\Gamma(2) \Gamma(\frac{D}{2})} \\
+			&=  \frac{i \mu^{2\epsilon}}{4^{\frac{D}{2}} \pi^{\frac{D}{2}}}(-a)^{\frac{D}{2}-2} \int_0^1 dx \Gamma(2-\frac{D}{2})  \\
+			&= \frac{i}{(4\pi)^2} \left(\frac{\mu^2 4 \pi}{q^2}\right)^\epsilon \Gamma(\epsilon),
+		\end{split}
+	\end{equation}
+	where we used $D = 4-2\epsilon$. Now we are left with the integral over x, which also can easily be computed using Eulers beta-function
+	\begin{equation}
+		\int_0^1 dx \frac{1}{a^2} =  -\int_0^1 x^{-\epsilon + 1 - 1} (1-x)^{-\epsilon +1 -1} \frac{1}{q^2} = - \frac{q}{q^2} \frac{\Gamma^2(1-\epsilon)}{\Gamma(2-2\epsilon)}.
+	\end{equation}
+	Consequently we are left with our final result
+	\begin{equation}
+		I_2(q) = \frac{i}{(4\pi)^2} \left(\frac{4 \pi \mu^2}{- q^2}\right)^\epsilon \frac{\Gamma(\epsilon)\Gamma^2(1-\epsilon)}{\Gamma(2-2\epsilon)}.
+	\end{equation}
+	\par
+	Moreover we have to deal with integrals having one ($I_1$) or three ($I_3$) factors in their denominators. The first takes the form 
+	\begin{equation}	
+		\label{eq:I1Integral}
+		I_1(q) = \mu^{2\epsilon} \int \frac{d^Dp}{(2\pi)^D} \frac{1}{(q-p)^2} = 0 
+	\end{equation}	
+	and is a scaleless integral, which are zero. The second is given by
+	\begin{equation}
+		\label{eq:I3Integral}
+		I_3(q, r) \equiv \mu^{2\epsilon} \int \frac{d^Dp}{(2\pi)^2} \frac{1}{p^2(q-p)^2(r-p)^2} = \mathcal{O}(1) 
+	\end{equation}
+	and does not contain any divegencies.
+	\par
+	Additionally we have to deal with $I_2(q)$ multiplied by a Lorentz momentum 
+	\begin{equation}
+		I^\mu_2(q) \equiv \mu^{2\epsilon} \int \frac{d^Dp}{(2\pi)^D} \frac{p_\mu}{p^2(q-p)^2} \overset{!}{=} \frac{p_\mu}{2} I_2(q).
+	\end{equation}
+	To solve this integral we can use a trick, which will be useful in future computations aswell. The result of the above integral must be dependend on q and transform under Lorentz invariance. Hence 
+	\begin{equation}
+		I^\mu_2(q) \overset{!}{=} A(p^2) p_\mu,
+	\end{equation}
+	where A is just a variable. Multiplying with $2p^\mu$ will give us three already known integral and consequently the final result. Thus the integral is given by
+	\begin{equation}
+		\begin{split}
+			2p^\mu I^\mu_2(q) &= \mu^{2\epsilon} \int \frac{d^Dp}{(2\pi)^D}\frac{2(p\cdot q)}{p^2(q-p)^2} \\
+			&= \mu^{2\epsilon} \int [\frac{d^Dp}{(2\pi)^D} \frac{1}{(q-p)^2} + \frac{q^2}{p^2(q-p)^2} - \frac{1}{p^2}] \\
+			&= I_1(q) + q^2I_2(q) - I(0) \\
+			&= q^2 I_2(q),
+		\end{split}
+	\end{equation}
+	where we used $2p\cdot q = p^2 + q^2 - (q-p)^2$. Consequently dividing through $2p^\mu$ we get our desired result
+	\begin{equation}
+		I^\mu_2(q) = \frac{q_\mu}{2} I_2(q).
+	\end{equation}
+
+\section{Renormalisation}
+Up to now we regularized so called ultraviolett (UV) divergencies. We did so in calculating Green's function, while using the DR regularisation. Now knowing the divergencies we need to renormalize, i.e. to eliminate all divergent parts. Leading to finite results for Green's functions in the limit of $\epsilon \rightarrow 0$.
+\par
+The general description to eliminate the divergent parts is to add counterterms to the QCD Lagrangian eq.~(\ref{eq:QCDLagrangianDensity}) corresponding to each superficially divergent diagram. Hence we substitute $\mathcal{L}_{0}$ by $\mathcal{L}_{0} + \mathcal{L}_{0,C}(x)$. The introduced counterterms $C_i$, understood as a power series in $g^2$ are all the extra terms needed to remove the UV divergencies.
+\par
+All new terms in $\mathcal{L}_C(x)$ can be thought of as new pertubative terms in the Lagrangian density with Feynman rules immediately derivable. Thus we must add the new resulting amplitudes to the amplitudes from our classical Lagrangian. Then we have to choose $C_i$ in such a way, that our final amplitude is finite.
+\par
+To simplify the improved Lagrangian density we want to introduce the renormalization constant Z, defined as
+\begin{equation}
+	Z_i \equiv 1 - C_i.
+\end{equation}
+With the help of the renormalization constant we can define a relations for so-called bare field, bare coupling constants as well as the bare mass and gauge parameter according to the definitions
+\begin{equation}
+	\label{eq:bareeq:bare}
+	\begin{split}
+		B^\mu_{aO} \equiv Z^{1/2}_{3YM} B^\mu_a(x), \qquad q^A_0(x) \equiv Z^{1/2}_{2F} q^A_\alpha (x) \\
+		\phi_{aO}(x) \equiv \tilde Z^{1/2}_3 \phi_a(x), \qquad \bar \phi_{a0}(x) \equiv \tilde Z^{1/2}_3 \bar \phi_a(x) \\
+		g_{OYM} \equiv Z_{1YM} Z^{-3/2}_{3YM}g, \qquad \tilde g_O \equiv \tilde Z_1 \tilde Z^{-1}_3 Z^{-1/2}_{3YM} g \\
+		g_{OF} \equiv Z_{1F} Z^{-1/2}_{3YM} Z^{-1}_{2F} g, \qquad g_{O5} \equiv Z^{1/2}_5 Z^{-1}_{3YM} g \\
+		m_{AO} \equiv Z_4 Z^{-1}_{2F} m_A, \qquad a_O \equiv Z^{-1}_6 Z_{3YM} a
+	\end{split}
+\end{equation}
+where we followed the notation of \cite{PT84} the right hand side is renormalized and finite. Hence the renormalized Lagrangian density can be written as
+\begin{equation}
+	\mathcal{L}_R(x) \equiv \mathcal{L}_{0}(x) + \mathcal{L}_{0,C}(x)
+\end{equation}
+\par
+Having simplified the QCD Lagrangian density we now have to discuss the choosing of the added constants $C_i$, i.e. to discuss different renormalization schemes. As we will get to know in the renormalization group chapter that different renormalization schemes must not change physical quantities. Defining the dimensionless coupling
+\begin{equation}
+	\alpha \equiv \frac{(g\mu^\epsilon)^2}{4\pi}
+\end{equation}
+we can write all the $C_i$'s as power series expansion in $\alpha$ of the type
+\begin{equation}
+	C_i = \sum^\infty_{j=1} \sum^j_{k=1} C^{(2j)}_{i,k} \frac{1}{\epsilon^k} \left(\frac{\alpha}{\pi}\right)^j,
+\end{equation} 
+where the coefficients are single, double, etc. poles in $1/\epsilon$. The simplest way to renormalize our theory is now to choose the constants $C_i$ in a way that they exactly cancel the $1/\epsilon$ divergencies, yielding a finite Green's function. This method is called minimal substraction scheme (MS scheme). Noticing that the $1/\epsilon$ dependencies always appear in combination with $-\ln4\pi + \gamma$ we can define a modified substraction scheme ($\bar{MS}$ scheme), i.e. defining $Z_i$ in such a way, that this combination is eliminated from the renormalized Green's function. Hence substituting
+\begin{equation}
+	\frac{1}{\epsilon} \rightarrow \frac{1}{\hat \epsilon} = \frac{1}{\epsilon} - \ln 4\pi + \gamma
+\end{equation}
+\par 
+Having found a way to renormalize our divergent Green's functions we now have the tool to find the renormalization constants used in the renormalization group analysis.
+
+\section{Renormalisation Group Equation}
+As mentioned before we know that physical observables must be independent of the renormalisation scheme, which is in general called renormalisation invariance and denominated under the renormalisation group.
+\par
+Considering a physical quantity $R(q, a_s, m)$, where q stands for the external momenta, $a_s = \alpha_s/\pi$, as well as m denote the renormalised QCD coupling and quark mass. As being a physical quantity $R(q, a_s, m)$ cannot depend on the renormalisation scale $\mu$. Hence the total derivative of $R(q, a_s, m)$ has to be zero
+\begin{equation}
+	\label{eq:RGEGeneral}
+	\mu \frac{d}{d\mu} R(q, a_s, m) = \left\{ \mu \frac{\partial}{\partial \mu} + \mu \frac{da_s}{d\mu}\frac{\partial}{\partial a_s} + \mu\frac{dm}{d\mu}\frac{\partial}{\partial m}\right\} R(q, a_s, m) = 0.
+\end{equation}
+From here we can define the renormalisation group functions $\beta(a_s)$ and $\gamma(a_s)$
+\begin{align}
+	\beta(a_s) &\equiv - \mu\frac{da_s}{d\mu} = \beta_1 a_s^2 + \beta_2 a_s^3 + \ldots & \beta\text{-function} \\
+	\gamma(a_s) &\equiv  -\frac{\mu}{m} \frac{dm}{d\mu} = \gamma_1 a_s + \gamma_2 a^2_s + \ldots & \text{mass anomalous dimension}.
+\end{align}
+The coefficients of both, the $\beta$-function and the anomalous dimension function, are known up to the 4-loop coefficients $\beta_4$ and $\gamma_4$. Employing these functions in our genereal renormalizatin group equation (RGE) eq.~(\ref{eq:RGEGeneral}) we can write
+\begin{equation}
+	\label{eq:RGE}
+	\left \{ \mu\frac{\partial}{\partial \mu} - \beta(a_s) \frac{\partial}{\partial a_s} - \gamma(a_s) m\frac{\partial}{\partial m} \right\} R(q, a_s, m) = 0
+\end{equation} 
+
+\subsection*{Running quark mass}
+The scale dependence of the quark mass, characterised by the mass anomalous dimension, is given by
+\begin{equation}
+	\gamma(a_s) \equiv -\frac{\mu}{m}\frac{dm}{d\mu} = \gamma_1 a_s + \gamma_2 a^2_s + \gamma_3 a^3_s + \gamma_4 a^4_s + \ldots.
+\end{equation}
+Until today the pertubative coefficients of the mass anomalous dimension are know up to the 4-loop coefficient $\gamma_4$. 
+\par
+The RGE of the quark mass can be integrated directly by the separation of variables
+\begin{equation}
+	\int^{m(\mu_2)}_{m(\mu_1)} \frac{dm}{m} = \ln \frac{m(\mu_2)}{m(\mu_1)} = - \int^{\mu_2}_{\mu_1} \frac{d\mu}{\mu} \gamma(a_s) = \int^{a_s(\mu_2)}_{a_s(\mu_1)} da_s \frac{\gamma(a_s)}{\beta(a_s)}.
+\end{equation}
+Thus we obtain 
+\begin{equation}
+	m(\mu_2) = m(\mu_1) \exp \left(\int^{a_s(\mu_2)}_{a_s(\mu_1)} da_s \frac{\gamma(a_s)}{\beta(a_s)} \right)
+\end{equation}
+Explicitly calculating the exponential at one-loop order yields
+\begin{equation}
+	\exp \left( \int^{a_s(\mu_2)}_{a_s(\mu_1)} da_s \frac{\gamma(a_s)}{\beta(a_s)} \right) = \exp \left(\frac{\gamma_1}{\beta_1} \int^{a_s(\mu_2)}_{a_s(\mu_1)} \frac{da_s}{a_s}\right) = \exp \left(\frac{\gamma_1}{\beta_1}\ln \frac{a_s(\mu_2)}{a_s(\mu_1)}\right) = \left(\frac{a_s(\mu_2)}{a_s(\mu_1)}\right)^{\gamma_1/\beta_1}
+\end{equation}
+Thus we obtain for the running mass
+\begin{equation}
+	m(\mu_2) = m(\mu_1) \left(\frac{a_s(\mu_2)}{a_s(\mu_1)}\right)^{\gamma_1/\beta_1} [1 + \mathcal{O}(a_s)]
+\end{equation}
+
+
+%\section{QCD Sum Rules}
+%To get in touch with the Borel Sum we want to slightly introduce the QCD sum rules. Knowing that the correlator function $\Pi(s)$ can only be calculated sufficient far away from the positive real axis of the four-momentum $q^2$, which we uses as paramaeter s. $\Pi(s)$ is a so called non-physical function and has as the physical Adler function $D(s)$ and the the physical spectral function $\rho(s)$, defined as
+%\begin{align}
+%	D(s) &\equiv -s \frac{d}{ds} \Pi(s) \\
+%	\rho(s) &\equiv \frac{1}{\pi} Im \Pi(s + i0),
+%\end{align}
+%poles and cuts. The obvious question is now how to connect the theoretical computed correlator function $\Pi_{th}(s)$ and the experimental measured spectral function $\rho_{exp}(s)$.
+%\par 
+%Using the Cauchy theorem we can rewrite our correlation function into
+%\begin{equation}
+%	\label{eq:dispersionRealtion}
+%	\Pi(s) = \int^\infty_0 \frac{\rho(s')}{(s'-s-i0)}ds' + P(s),
+%\end{equation}
+%where $P(s)$ is an yet unknown polynomial in s, which carries the scale dependence. The above relation is furthermore called dispersion relation.
+%\par
+%A physical quantity is describable either in the quark-gluon picture or in the hadronic picture (quark-hadron duality), thus we can rewrite eq.~(\ref{eq:dispersionRelation}) into
+%\begin{equation}
+%	\label{eq:QCDSumRulesStartingPoint}
+%	\Pi_{th}(s) = \int^\infty_0 \frac{\rho_{exp}(s')}{(s'-s-i0)} ds' + P(s),
+%\end{equation}
+%which is the starting point for our analyses in the framework of QCD sum rules.
+%\par 
+%Now we have the problem that our experimental data can only be measured till a certain energy, the treshold $s_{th}$. Consequently we want to introduce the Borel (inverse Laplace) transformation, which leads to an exponential suppresion of not investigated higher energies.
+%
+%\subsection*{Analytic Continuation of the OPE}
+%\textcolor{red}{cite paper}
+%\textcolor{red}{add image complex plane}
+%For the QCD sum rules it is conventional to replace the left hand side of eq.(\ref{eq:QCDSumRulesStartingPoint}) by its respective OPE. Hence we obtain
+%\begin{equation}
+%	\label{eq:QCDSumRulesOPE}
+%	\Pi^{OPE}(s) = \int^\infty_0 \frac{\rho(s')}{s'-s}ds' + P(s)
+%\end{equation}
+%
+%\subsection*{Borel Transformation}
+%The unknown polynominal in eq.~(\ref{eq:QCDSumRulesOPE}) can be removed by the Borel transform defined by
+%\begin{equation}
+%	\hat B_{[X]} \equiv \lim_{\substack{X,n\to\infty\\X/n = M^2}} \frac{X^n}{(n-1)!} \left(-\frac{\partial}{\partial X}\right)^n.
+%\end{equation}
+%Performing some transformation, which can be seen under \textcolor{red}{cite}, we obtain
+%\begin{equation}
+%	\begin{split}
+%		\hat B_{[s]} \Pi(s) &= \hat B_{[s]} \Pi^{OPE}(s) \\
+%		&= \frac{1}{M^2} \int^\infty_0 e^{-s/M^2} \rho(s) ds  
+%	\end{split}
+%\end{equation}
+

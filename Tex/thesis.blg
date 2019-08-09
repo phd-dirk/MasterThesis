@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: titlepage.aux
+A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: fundamentalConcepts.aux
+A level-1 auxiliary file: diagram.aux
+A level-1 auxiliary file: outlook.aux
+A level-1 auxiliary file: acknowledgement.aux
+A level-1 auxiliary file: appendix.aux
+The style file: plain.bst
+Database file #1: thesis.bib
+Warning--empty note in bhj15
+Warning--empty note in j06
+Warning--empty title in svz79
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            544 strings with 4967 characters,
+and the built_in function-call counts, 1600 in all, are:
+= -- 153
+> -- 73
+< -- 0
++ -- 29
+- -- 22
+* -- 90
+:= -- 306
+add.period$ -- 20
+call.type$ -- 7
+change.case$ -- 30
+chr.to.int$ -- 0
+cite$ -- 10
+duplicate$ -- 65
+empty$ -- 119
+format.name$ -- 22
+if$ -- 315
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 6
+newline$ -- 37
+num.names$ -- 14
+pop$ -- 25
+preamble$ -- 1
+purify$ -- 25
+quote$ -- 0
+skip$ -- 50
+stack$ -- 0
+substring$ -- 44
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 26
+warning$ -- 3
+while$ -- 15
+width$ -- 8
+write$ -- 73
+(There were 3 warnings)

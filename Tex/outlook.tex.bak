@@ -1,0 +1,41 @@
+\chapter{Outlook}
+Having found an expression for the leading order of the anomalous dimension matrix $\hat \gamma^{(1)}$ we should now check for the in the introduction mentioned renormalons. Using the Borel transform to surpress higher orders of the coupling constant $a_s$ we want to show an application of the from us yielded first order anomalous dimension matrix. The in the introduction mentioned singularities lead to ambiguities in the pertubation of higher OPE terms, which should not exist. The anomalous dimension matrix could therefore be one of the needed parameters to fix this ambiguities. Following \cite{bj08} we want to show application of the anomalous dimension matrix, trying to describe the renormalon poles.
+\par
+Comparing the energy dependence of a certain term in the OPE to the one of the complex ambiguity of the Borel integral the renormalon singularity that gives rise to this ambiguity can be determined. A generic term in the OPE of the physical Adler function $\hat D(s)$, given by
+\begin{equation}
+	D(s) \equiv -s \frac{d}{ds} \Pi(s),
+\end{equation}
+where $\Pi(s)$ denotes the not physical correleation function, from an operator $O_d$ of dimension d can be written as
+\begin{equation}
+	\label{eq:genericOPE}
+	\hat C_{O_d}(A_Q) \frac{\langle \hat O_d}{Q^d} = [a_Q]^{\gamma^{(1)}_{O_d}}{\beta_1} \left[\hat C^{(0)}_{O_d} + \hat C^{(1)}_{O_d} a_Q + \hat C^(2)_{O_d} a^2_Q + \cdot\right] \frac{\langle \hat O_d \rangle}{O^d}, 
+\end{equation}
+where we used the scale invariant operator $\hat O_d$ defined by
+\begin{equation}
+	\hat O_d \equiv O_d(\mu) \exp \left\{- \int \frac{\gamma_{O_d}(a_\mu)}{\beta(a_\mu)}da_\mu\right\},
+\end{equation}
+such that higher order coefficients of $\gamma_{O_d}$ are contained in the Wilson coefficients $\hat C^{(k)}_{O_d}$. Employing the RGE for $a_Q$, the Q-dependen part of eq.~(\ref{eq:genericOPE}) can be written as 
+\begin{equation}
+	\label{eq:genericOPERGE}
+	\frac{\hat C_{O_d}(a_Q)}{Q^d} = const \times \hat C_{O_d}(a_Q) e^{-\frac{d}{\beta_1 a_Q}}[a_Q]^{-d\frac{\beta_2}{\beta^2_1}}  \left[1 + b_1 a_Q + b_2 a^2_Q + \cdots \right],
+\end{equation}
+where the coefficients $b_1$ and $b_2$ are fount to be
+\begin{equation}
+	b_1 = \frac{d}{\beta_1^3} (\beta_2^2 - \beta_1 \beta_3), \qquad b_2 = \frac{b_1^2}{2} - \frac{d}{2\beta_1^4}(\beta^3_2 = 2 \beta_1\beta_2\beta_3 + \beta_1^2\beta_4 ).
+\end{equation}
+To find the Borel transform that matches the Q-dependence of eq.~(\ref{eq:genericOPERGE}) one can take the ansatz
+\begin{equation}
+	B[\hat D^{IR}_p](u) \equiv \frac{d^{IR}_p}{(p-u)^{1+\tilde \gamma}} \left[1 + \mathcal{O}(p-u) \right],
+\end{equation}
+where we are only interested in the first order. If we wanted to investigate higher orders we needed to calculate the anomalous dimension for higher orders as well. Employing the imaginary ambiguity of $R^{IR}_p(\alpha)$, which has been derived in \cite{bj08}, yields the correspondent imaginary ambiguity corresponding to the Borel integral of $B[\hat D^{IR}_p](u)$ 
+\begin{equation}
+	\label{eq:ambiguityBorel}
+	Im\left[\hat D^{IR}_p(a_Q)\right] = const. \times e^{-\frac{2p}{\beta_1a_Q}}[a_Q]^{-\bar \gamma} \left[1 + \mathcal{O})a_Q^2\right].
+\end{equation}
+Comparing eqs.~(\ref{eq:genericOPERGE}) and (\ref{eq:ambiguityBorel}), one deduces the following parameters
+\begin{equation}
+	p = \frac{d}{2}, \qquad \tilde \gamma = 2p \frac{\beta_2}{\beta_1^2} - \frac{\gamma^{(1)}}{\beta_1}.
+\end{equation}
+Noticing that all parameters except from the from us calculated anomalous dimension matrix $\gamma^{(1)}$ are known, we could now insert their values and compare the results with former computations neglecting the influence of the anomalous dimension matrix. Moreover the anomalous dimension will give us a hint about the strength of the renormalon singularities we are dealing with. 
+\par
+Our results of the leading order anomalous dimension-6 operators could be employed to improve the Borel model for the pertubative higher order behavior of vector- and axialvector-correlators \cite{bj08}. This will be discussed in a forthcoming publication not published \cite{bhj15}, which will be discussed in a forthcoming publication.   

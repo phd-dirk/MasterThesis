@@ -1,0 +1,769 @@
+
+% DIAGRAM (MATTHIAS NOTES)
+% -----------------------
+\chapter{Calculations}
+
+% definitions 
+% -----------
+\section{Introduction}
+In this chapter we want to calculate the anamalous dimension matrix of our 4 quark operators $Q_{V-A}$ and $Q_{V+A}$, each with singulet and octet strucutre. We will start with the computation of the $2\times2$ anomalous dimension matrix for the mixing of the two 4-quark operators $Q^S_{V-A}$ and $Q^O_{V-A}$ into each other. In the following chapter we will deal with the computation of the $Q_{V+A}$ $9\times9$ anomalous dimension  matrix. The definitions of the operators can be found in App. \ref{app:fourQuarkOperatorBasis} on page \pageref{app:fourQuarkOperatorBasis}. To get to know the basics of the calculations we now want to start with the computation of the $0^{th}$ order diagram. 
+% 0th order
+% ---------
+\section{$0^{th}$ Order Diagram}
+	To show the basical calculation method we want to start by calculating the most accessible diagram. We will start by defining our 4-quark-operators 
+	\begin{equation}
+		\label{eq:4QuarkOperators}
+		Q^S_{V,A} = \left ( \bar{q}^A \Gamma_1 q^B \bar q^B \Gamma_2 q^A \right )  (z) \qquad \text{ and } \qquad  Q^0_{V,A} = \left ( \bar{q}^A t^a \Gamma_1 q^B \bar q^B t^a \Gamma_2 q^A \right )  (z), 
+	\end{equation}			
+	where A and B denote flavor indices. Additionaly $Q^S_{V,A}$ stands for the singlet operator and $Q^O_{V,A}$ for the octett operator (the octett operator contains the color matrix $t^a$). The indices $V,A$ denote the vectorial structure, which can be either vectorial or axial vectorial (with or without $\gamma_5$). $\Gamma_1$ and $\Gamma_2$ are generic 4x4 matrices and will be replaced later by vector $\gamma_\mu$  or axial-vector $\gamma_\mu \gamma_5$ structure. In our case they $\Gamma_1$ will be equal with $\Gamma_2$. \textcolor{red}{why??}.  \\
+	To show the principles of the calculation method we will be very explicit within the first computation. Starting with the construction of a 4-point Green's function we need to add four external fields 
+	\begin{equation}
+		\bar q_\alpha^i (x_1) q_\beta^j (x_2) \bar q_\delta^k (x_3) q_\gamma^l (x_4),
+	\end{equation}
+	where $i,j,k,l$ denote color-indices and $\alpha, \beta, \delta, \gamma$ stand for dirac-indices. The general definition of the 4-point Green's function is given by (\textcolor{red}{need derivation})
+	\begin{equation}
+		\label{eq:fourQuarkGreensFunction}
+		\begin{split}
+			\Gamma &= \int d^Dx_1d^Dx_2d^Dx_3d^Dx_4 e^{i(p_1x_1+p_2x_2+p_3x_3+p_4x_4)} \\	
+			&\times \left \langle 0 \left | T \left \{ \bar q_\alpha^i (x_1) q_\beta^j (x_2) \bar q_\delta^k (x_3) q_\gamma^l (x_4) e^{i\int d^Dz \mathcal{L}_I(z)} \right \} \right | 0 \right \rangle, 
+		\end{split}
+	\end{equation}
+	where the interaction term ($e^{i\int d^Dz \mathcal{L}_I(z)}$) is equal to one for the zeroth-order calculation. Now inserting our first operator from Eq. \ref{eq:4QuarkOperators} yields
+	\begin{equation*}
+		\begin{split}
+			\Gamma &= \int d^D x_1 d^D x_2 d^D x_3 d^D x_4 d^Dz e^{i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} \\ 
+			  &\times \left \langle 0 \left |T\left\{ q_\alpha^i(x_1) \bar q_\beta^j(x_2) \left[ \bar q^A t^a\Gamma_1 q^B \bar q^B t^a\Gamma_2 q^A \right](z) q_\delta^k(x_3) \bar q_\gamma^l(x_4) \right\} \right |0\right \rangle \\ 
+			&= (-1)^4 \int d^D x_1 d^D x_2 d^D x_3 d^D x_4 d^Dz e^{i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} \\ 
+			&\times \left \langle 0 \left | T \left\{ q_\alpha^i(x_1) \bar q^A(z) t^a\Gamma_1 q^B(z) \bar q_\beta^j(x_2) q_\delta^k(x_3) \bar q^B(z) t^a\Gamma_2 q^A(z) \bar q_\gamma^l(x_4) \right\} \right | 0 \right \rangle, 
+		\end{split}
+	\end{equation*}
+	where we had to perform four permutations in the last line. Every permutation yields a factor of $-1$, due to the antikommutating characteristics of the dirac-fields.
+	\begin{equation}
+		 q_\alpha \bar q_\beta = (-1) \bar q_\beta q_\alpha	
+	\end{equation}
+	Using Wick's theorem and especially \textcolor{red}{Eq. shitty propagator equations} we now want to contract the fields. Hence regarding only the time-ordered part 
+	\begin{equation*}
+		\begin{split}
+			\Gamma_0 &= \int d^D x_1 d^D x_2 d^D x_3 d^D x_4 dz e^{i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} \\ 
+			&\times \left \langle 0 \left | T \left\{ 
+			\contraction[2ex]{}{q}{{}_\alpha^i(x_1) \bar}{q} 
+			q_\alpha^i(x_1) \bar q^A(z) t^a\Gamma_1 
+			\contraction[2ex]{}{q}{{}^B(z) \bar}{q}
+			q^B(z) \bar q_\beta^j(x_2) 
+			\contraction[2ex]{}{q}{{}_\delta^k(x_3) \bar}{q}
+			q_\delta^k(x_3) \bar q^B(z) t^a\Gamma_2 
+			\contraction[2ex]{}{q}{{}^A(z) \bar}{q}
+			q^A(z) \bar q_\gamma^l(x_4) \right\} \right | 0 \right \rangle \\
+			 &= \delta^{ij}\delta^{kl}(i)^4 \int d^D x_1 d^D x_2 d^D x_3 d^D x_4 dz e^{i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} \\ 
+			&= \left[S^A(x_1-z) t^a\Gamma_1 S^B(z-x_2) \right]_{\alpha\beta} \left[S^B(x_3-z)t^a\Gamma_2S^A(z-x_4)\right]_{\delta\gamma},
+		\end{split}
+	\end{equation*}
+	The two Kronecker-deltas ($\delta^{ij}, \delta^{kl}$) rise from color conservation between the in- and outgoing quarks \textcolor{red}{add equation} and the factor $(i)^4$ is obtained from the propagator contraction (\textcolor{red}{add Equation}). 
+	
+	Now we want to perform a Fourier-transformation. As we are not facing a loop, all integrals are supposed to vanish. Transforming all four propagators, thus
+	\begin{equation}
+		\begin{split}
+			S^A(x_1-z) &= \int \frac{d^Dk_1}{(2\pi)^D} e^{-ik_1(x_1-z)} S^A(k_1) \\
+			S^B(z-x_2) &= \int \frac{d^Dk_2}{(2\pi)^D} e^{-ik_2(z-x_2)} S^B(k_2) \\
+			S^B(x_3-z) &= \int \frac{d^Dk_3}{(2\pi)^D} e^{-ik_3(x_3-z)} S^B(k_3) \\
+			S^A(z-x_4) &= \int \frac{d^Dk_4}{(2\pi)^D} e^{-ik_4(z-x_4)} S^A(k_4), 
+		\end{split}
+	\end{equation}
+	can be inserted into $\Gamma_0$, yielding 
+	\begin{equation}
+		\begin{split}
+			\Gamma_0
+			 &= \delta^{ij}\delta^{kl} \int d^D x_1 d^D x_2 d^D x_3 d^D x_4 dz \frac{d^D k_1}{(2\pi)^D} \frac{d^D k_2}{(2\pi)^D} \frac{d^D k_3}{(2\pi)^D} \frac{d^D k_4}{(2\pi)^D} \\
+			&\times e^{-ik_1(x_1-z)} e^{-ik_2(z-x_2)}e^{-ik_3(x_3-z)}e^{-ik_4(z-x_4)} e^{i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} \\ 
+			&\times \left[S^A(k_1) t^a\Gamma_1 S^B(k_2) \right]_{\alpha\beta} \left[S^B(k_3)t^a\Gamma_2S^A(k_4)\right]_{\delta\gamma}.
+		\end{split}
+	\end{equation}
+	Reordering the exponential function and integrating over $dx_1, dx_2, dx_3, dx_4$ and $d^Dz$ will give us the needed Dirac-delta distributions
+	\begin{equation}
+		\begin{split}
+			\Gamma_0 &= \delta^{ij}\delta^{kl} \int d^D x_1 d^D x_2 d^D x_3 d^D x_4 dz \frac{d^D k_1}{(2\pi)^D} \frac{d^D k_2}{(2\pi)^D} \frac{d^D k_3}{(2\pi)^D} \frac{d^D k_4}{(2\pi)^D} \\
+			&\times e^{ix_1(p_1-k_1)} e^{ix_2(p_2+k_2)} e^{ix_3(p_3-k_3)} e^{ix_4(p_4+k_4)} e^{iz(k_1+k_3-k_2-k_4)} \\
+			&\times \left[S^A(k_1) t^a\Gamma_1 S^B(k_2) \right]_{\alpha\beta} \left[S^B(k_3)t^a\Gamma_2S^A(k_4)\right]_{\delta\gamma} \\
+			 &= \delta^{ij}\delta^{kl} \int d^D x_1 d^D x_2 d^D x_3 d^D x_4 dz \frac{d^D k_1}{(2\pi)^D} \frac{d^D k_2}{(2\pi)^D} \frac{d^D k_3}{(2\pi)^D} \frac{d^D k_4}{(2\pi)^D} \\
+			&\times \delta^{(D)}(p_1-k_1) \delta^{(D)}(p_2+k_2) \delta^{(D)}(p_3-k_3) \delta^{(D)}(p_4+k_4) \delta^{(D)}(k_1+k_3-k_2-k_4) \\
+			&\times \left[S^A(k_1) t^a\Gamma_1 S^B(k_2) \right]_{\alpha\beta} \left[S^B(k_3)t^a\Gamma_2S^A(k_4)\right]_{\delta\gamma}.
+		\end{split}
+	\end{equation}
+	Integrating over $k_1, k_2, k_3 \text{and} k_4$ give us the following relations due to the Dirac-deltas
+	\begin{equation}
+		\begin{split}
+			k_1 &= p_1 \\
+			k_2 &= -p_2 \\
+			k_3 &= p_3 \\
+			k_4 &= -p_4 \\
+			k_1 + k_3 &= k_2 + k_4, 
+		\end{split}
+	\end{equation}
+	where the last relation represents the impuls conservation of the ingoing ($p_1, p_3$) and outgoing ($p_2, p_4$) impulses. Thus we are left with
+	\begin{equation}
+		\begin{split}
+			\Gamma_0 &= \delta^{ij}\delta^{kl} \left[S^A(-p_1) t^a\Gamma_1 S^B(p_2) \right]_{\alpha\beta} \left[S^B(-p_3)t^a\Gamma_2S^A(p_4)\right]_{\delta\gamma},
+		\end{split}
+	\end{equation}
+	which can be displayed as a Feyman diagram
+	\begin{fmffile}{samplepics}
+		\begin{equation}
+		\begin{gathered}
+		\begin{fmfgraph*}(100,75)
+			\fmfleftn{i}{2} \fmfrightn{o}{2}
+			\fmf{fermion, label=$p_3$}{i1,v1}
+			\fmf{fermion, label=$p_4$, label.side=right}{v1,o1}
+			\fmf{fermion, label=$p_1$, label.side=left}{i2,v1}
+			\fmf{fermion, label=$p_2$}{v1,o2}
+			\fmfv{decoration.shape=square, decoration.size=6, label=z}{v1}
+			\fmflabel{$x_1$}{i2}
+			\fmflabel{$x_3$}{i1}
+			\fmflabel{$x_2$}{o2}
+			\fmflabel{$x_4$}{o1}
+		\end{fmfgraph*}
+		\end{gathered}
+		=	
+		\bcontraction[1ex]{}{q}{{}^i_\alpha(x_1) \bar q^j_\beta(x_2) [ \bar}{q} 
+		\contraction[1ex]{q^i_\alpha(x_1) \bar}{q}{{}^j_\beta(x_2) [ \bar q^A \Gamma_1}{q}
+		q^i_\alpha(x_1) \bar q^j_\beta(x_2) [ \bar q^A \Gamma_1 q^B 
+		\bcontraction[1ex]{\bar}{q}{{}^B \Gamma_2 q^A ](z)}{q}
+		\contraction[1ex]{\bar q^B \Gamma_2 q}{{}^A ](z) q^k_\delta(x_3) \bar}{q}
+		\bar \bar q^B \Gamma_2 q^A ](z) q^k_\delta(x_3) \bar q^l_\gamma(x_4).
+		\end{equation}
+	\end{fmffile}
+		
+	Amputating the external-propagators will give us the zeroth-order structure
+	\begin{equation}
+		\Gamma_{0,V}^{amp} = \delta^{ij}\delta^{kl}[\Gamma_1]^{AB}_{\alpha\beta}[\Gamma_2]^{BA}{\delta\gamma}
+	\end{equation}
+	One can easily check, that inserting the second four quark-operator $Q^0_A$ yields
+	\begin{equation}
+		\Gamma_{0,A}^{amp} = (t^a)^{ij}(t^a)^{kl}[\Gamma_1]^{AB}_{\alpha\beta}[\Gamma_2]^{BA}_{\delta\gamma}
+	\end{equation}
+
+	We now want to deal with first-order diagrams, concentrating on the quark-gluon interactions. Remembering the definition of our four quark Green's function Eq. \ref{eq:fourQuarkGreensFunction} we need to expand the interaction term in the exponential function
+	\begin{equation}
+		\begin{split}
+			e^x &= 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + ... \\
+			e^{i\int d^D z \mathcal{L}_I(z)} &= 1 + g_sB_a^\mu(x)\sum_f\bar q_f^\alpha \gamma^\mu (t^a)_{\alpha\beta}q_f^\beta \\
+			&+ g_s^2[B_a^\mu(x)\sum_f\bar q_f^\alpha \gamma^\mu (t^a)_{\alpha\beta}q_f^\beta] [B_b^\nu(x)\sum_f\bar q_f^\sigma \gamma^\nu (t^b)_{\sigma\delta}q_f^\delta]  + ... , 
+		\end{split}
+	\end{equation}
+	which will give us the following diagrams \\
+	\textcolor{red}{include all the fucking diagrasm and name them a, b, .. to f}
+
+	\section{a-Diagram}	
+	Inserting the expanded e-function into the four quark Green's function (Eq. \ref{eq:fourQuarkGreensFunction}) yields
+	\begin{equation}
+		\begin{split}
+			\Gamma = & g_s^2 \int d^Dx_1d^Dx_2d^Dx_3d^Dx_4d^Dzd^Dy_1d^Dy_2 e^{i(p_1x_1+p_2x_2+p_3x_3+p_4x_4)} \\
+				&\left \langle 0 \left | T\{
+				\contraction{}{q}{{}^i_\alpha(x_1) \bar q^j_\beta(x_2) [\bar q^A \Gamma_1 q^B \bar q^B \Gamma_2 q^A](z)[\bar}{q}
+				q^i_\alpha(x_1) \bar
+				q^j_\beta(x_2) [\bar q^A \Gamma_1 q^B \bar q^B \Gamma_2
+				\bcontraction[2ex]{}{q}{{}^A](z)[\bar q \gamma^\lambda t^b B_\lambda^b q](y_1)[\bar q \gamma^\sigma t^c B^c_\sigma q](y_2) q^k_\delta(x_3) \bar }{q}
+				 q^A](z)[\bar q \gamma^\lambda t^b B_\lambda^b q](y_1)[\bar q \gamma^\sigma t^c B^c_\sigma q](y_2) q^k_\delta(x_3) \bar q^l_\gamma(x_4) \} \right |0 \right \rangle \\
+			 = & i g_s^2 C_F \delta^{ij}\delta^{kl} \int d^Dx_1d^Dx_2d^Dx_3d^Dx_4 d^Dz d^Dy_1 d^Dy_2 e^{i(x_1p_1 + x_2p_2 + x_3p_4 + x_4p_4)} \\
+			&\times \left [S^A(x_1-y_1)\gamma^\lambda S^A(y_1-z)\Gamma_1 S^B(z-y_2)\gamma^\sigma S^B(y_2-x_2) \right ]_{\alpha\beta} \left [ S^B(x_3-z)\Gamma_2 S^A(z-x_4) \right ]_{\delta\gamma} \\
+			& \times D_{\lambda\sigma}(y_1-y_2) 
+		\end{split}
+	\end{equation}
+	\textcolor{red}{die judencontractionen FUNTKIONIEREN NICHT}
+	Performing once again a Fourier-transformation, while regarding the imposed e-function structure 
+	\begin{equation}
+		\begin{split}
+			\Gamma_{eFkt} &= e^{i(x_1p_2+x_2p_2+x_3p_3+x_4p_4)-ik_1(x_1-y_1)-ik_2(y_1-z)-ik_3(z-y_2)-ik_4(y_2-x_2)-ik_5(x_3-z)-ik_6(z-x_4)-ik_z(y_1-y_2)} \\
+			&= e^{ix_1(p_1-k_1)}e^{ix_2(p_2+k_4)}e^{ix_3(p_3-k_5)}e^{ix_4(p_4+k_6)}e^{iy_1(k_1-k_2-k_7)}e^{iy_2(k_3-k_4+k_7)}e^{iz(k_2-k_3+k_5-k_6)}
+		\end{split}.
+	\end{equation}
+	From the e-functions one can in general directly guess the dirac functions and, as a result get the relations between the impulses k and p. Thus we are left with
+	\begin{equation}	
+		\begin{split}
+		\Gamma &= ig_s^2C_F\delta^{ij}\delta^{kl}\int\frac{d^Dk}{(2\pi)^D} \left [ S^A(p_1)\gamma^\delta S^A(p_1-k) \Gamma_1 S^B(-p^2-k) \gamma^\sigma S^B(-p_2) \right ]_{\alpha\beta}  \\
+			& \times \left [S^B(p_3) \Gamma_2 S^A(-p_4)\right]_{\delta\gamma}D_{\lambda\sigma}(k).
+		\end{split}
+	\end{equation}
+	Finally amputating the external quark propagators gives us the needed diagram structure
+	\begin{equation}
+		\begin{split}
+			\Gamma_{amp} &= ig_s^2 C_F \delta^{ij}\delta^{kl}\int\frac{d^Dk}{(2\pi)^D}\gamma^\lambda \left [S(p_1-k)\Gamma_1S(-p_2-k)\gamma^\sigma \right]^{AB}_{\alpha\beta} \left [\Gamma_2\right]^{BA}_{\delta\gamma}D_{\lambda\sigma}(k) \\
+			&=  ig_s^2C_F\delta^{ij}\delta^{kl}\int\frac{d^Dk}{(2\pi)^D}\frac{\gamma^\lambda(p\!\!\!/-k\!\!\!/)\Gamma_1(-p_2\!\!\!\!\!/-k\!\!\!/)\gamma^\sigma}{k^2(p_1-k)^2(-p_2-k)^2}\left[-g_{\lambda\sigma}+(1-a)\frac{k_\lambda k_\sigma}{k^2}\right] \left[ \Gamma_2 \right ]^{BA}_{\delta\gamma}
+		\end{split}
+	\end{equation}
+	As $g_{\lambda\sigma}$ contracts the gamma matrices $\gamma^\lambda$ and $\gamma^\sigma$, we are left with three types of integrals
+	\textcolor{red}{three types of diagram}
+	\begin{equation}
+		\int\frac{d^Dk}{(2\pi)^D}\frac{1}{k^2(p-k)^2(s-k)^2},
+	\end{equation}
+	\begin{equation}
+		\int\frac{d^Dk}{(2\pi)^D}\frac{k_\mu}{k^2(p-k)^2(s-k)^2},
+	\end{equation}
+	\begin{equation}
+		\int\frac{d^Dk}{(2\pi)^D}\frac{k_\mu k_\nu}{k^2(p-k)^2(s-k)^2},
+	\end{equation}
+	where we have substituted $p_1 = p$ and $-p_2 = s$. Thus we are left with
+	\begin{equation}
+		\label{eq:aPreIntegralGreensFunction}
+		\begin{split}
+			\Gamma_{int} &= ig_s^2 C_F \delta^{ij} \delta^{kl} \times \\
+			&\left\{ \int \frac{d^Dk}{(2\pi)^D}\frac{-k_\mu k_\nu}{k^2(p-k)^2(s-k)^2} \left[ \gamma_\sigma \gamma^\mu \Gamma_1 \gamma^\nu \gamma^\sigma \right]^{AB}_{\alpha\beta} + \int \frac{d^Dk}{(2\pi)^D} \frac{(1-a)\left[\Gamma_1\right]^{AB}_{\alpha\beta}}{(p-k)^2(s-k)^2}\right\} \left[ \Gamma_2\right]^{BA}_{\alpha\beta}, 
+		\end{split}.
+	\end{equation}	
+	 Checking for the dimensions, one can easily see, that only the last of the three integrals contains a ultraviolet divergency. A sloppy explanation for the first two integrals beeing finite is, that the integral adds a factor $k^4$, in the four dimensional Minkowski space. Regarding the numinator of the integrals we see that they are of order $k^6$, consequently only a diagram with a numinator of order two or bigger can be ultraviolet divergent. \\	 
+	Being left with only one integral we now want to proceed with its evaluation. As we have to deal with similar computations in future integrals we want to be very specific about the analysis. \textcolor{red}{derive right hand side, method of multiplying shit}. 
+	\begin{equation} 
+		\label{eq:1DiagramIntegralEquation}
+		\begin{split}
+			\Gamma_{int} &=	\mu^{2\epsilon}\int\frac{d^D k}{(2\pi)^D}\frac{k_\mu k_\nu}{k^2(p-k)^2(s-k)^2} \\
+			&= \underbrace{g_{\mu\nu}}_{i}A + \underbrace{[p_\mu p_\nu + s_\mu s_\nu]}_{ii}B + \underbrace{[p_\mu s_\nu + p_\nu s_\mu]}_{iii}C 
+		\end{split}
+	\end{equation}
+	We can see, that we are dealing with three factors A, B and C which have to be calculated. Multiplying both sides of the equation with each of those factors will give us a solvable equation system, which will be evaluated with the help of Mathematica.
+	\begin{enumerate}[i)]
+		\item 
+			We start by multiplying the left-hand side of Eq. \ref{eq:1DiagramIntegralEquation} with the metric tensor $g^{\mu\nu}$ yields 
+			\begin{equation}
+				\label{eq:aiIntegral}
+				\begin{split}
+					g^{\mu\nu}\Gamma_{amp} &= \mu^{2\epsilon}\int\frac{d^Dk}{(2\pi)^D}\frac{\bcancel{k^2}}{\bcancel{k^2}(p-k)^2(s-k)^2} \\
+					&\overbrace{=}^{u=k-s} \mu^{2\epsilon}\int\frac{d^Dk}{(2\pi)^D}\frac{1}{u^2(p-s-k)^2},
+				\end{split}
+			\end{equation}
+			where we have used the substitution $u=k-s$ in the last line. Now we obtained the first type of integrals defined as 
+			\begin{equation}	
+				I_2(p) \equiv \mu^{2\epsilon}\int\frac{d^Dk}{(2\pi)^D}\frac{1}{k^2(p-k)^2},
+			\end{equation}
+			where I is classified by having two denominators and therefore carries an indice two. In \textcolor{red}{(add appendix)} we gathered a list of all needed integrals. Hence
+			\begin{equation}	
+				g^{\mu\nu}\mu^{2\epsilon}\int\frac{d^Dk}{(2\pi)^D}\frac{k_\mu k_\nu}{k^2(p-k)^2(s-k)^2} = I_2(p-s) 
+			\end{equation}
+			Having found an expression for the left-hand side we now want to deal with the right-hand one.
+			\begin{equation}	
+				g^{\mu\nu} \left\{ g_{\mu\nu}A + [p_\mu p_\nu + s_\mu s_\nu]B + [p_\mu s_\nu + p_\nu s_\mu]C \right\} = DA + [p^2+s^2]B + 2(p\cdot s)C 
+			\end{equation}
+		\item	
+			Now we want to evaluate the second factor equation, thus starting with the left-hand side yields
+			\begin{equation}
+				\begin{split}
+					[p^\mu p^\nu + s^\mu s^\nu]\Gamma_{int} &= [p^\mu p^\nu + s^\mu s^\nu]mu^{2\epsilon}\int\frac{d^Dk}{(2\pi)^D}\frac{k_\mu k_\nu}{k^2(p-k)^2(s-k)^2} \\
+					&= \mu^{2\epsilon}\int\frac{(p \cdot k)^2 (s \cdot k)^2}{k^2(p-k)^2(s-k)^2} \\
+					&= \mu^{2\epsilon}\int \underbrace{\frac{\left( \frac{1}{2} [p^2 + k^2 -(p-k)^2 ] \right)^2}{k^2(p-k)^2(s-k)^2}}_{\alpha} + \underbrace{\frac{\left( \frac{1}{2} [s^2 + k^2 -(s-k)^2 ] \right)^2}{k^2(p-k)^2(s-k)^2}}_{\beta}, 
+				\end{split}
+			\end{equation}
+			where we used
+			\begin{equation}
+				(p\cdot k) = \frac{1}{2}[p^2 + k^2 - (p-k)^2]
+			\end{equation}
+			in the last line. Now we want to split up the diagram into an $\alpha$ and $\beta$ part as seen from the underbraces. We will now start to evaluate the $\alpha$ integral first. Hence 
+			\begin{equation}
+				\begin{split}
+					\Gamma^\alpha_{int} &= \frac{\mu^2}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{[p^2+k^2-(p-k)^2]^2}{k^2(p-k)^2(s-k)^2} \\ 
+					&= \frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2pi)^D}\frac{\overbrace{p^4}^{a} + \overbrace{2p^2k^2}^{b} + \overbrace{[-2p^2(p-k)^2]}^{c} + \overbrace{k^4}^{d} + \overbrace{[-2k^2(p-k)^2]}^{e} + \overbrace{(p-k)^4}^{f}}{k^2 (p-k)^2 (s-k)^2} 	
+				\end{split}
+			\end{equation}	
+			Within $i\alpha$ we have to evaluate six diagrams (), which we will do explicit.
+			\begin{enumerate}[a)]
+				\item 
+					\begin{equation}
+						\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{p^4}{k^2(p-k)^2(s-k)^2} = \frac{(p\cdot p)^2}{4} I_3(p,s),
+					\end{equation} 
+					with $I_3(p,s)$ defined as
+					\begin{equation}
+						I_3(p,s) \equiv \frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{1}{k^2(p-k)^2(s-k)^2} = \text{finite}. 
+					\end{equation}
+					$I_3(p,s)$ represents a finite integral and will be consequently neglected in our further calculation.
+				\item
+					\begin{equation}
+						\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{2p^2\bcancel{k^2}}{\bcancel{k^2}(p-k)^2(s-k)^2} = \frac{2p^2}{4}I_2(p-s)	
+					\end{equation}
+					\textcolor{red}{maybe i can change the equation numbers 3.14 to 3.ia or something}
+				\item 
+					\begin{equation}
+						\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{-2p^2\bcancel{(p-k)^2}}{k^2\bcancel{(p-k)^2}(s-k)^2} = \frac{-2p^2}{4}I_2(s)	
+					\end{equation}
+				\item
+					For d) we have to evaluate a new type of integral, which can be solved by substituting $u=k-s$. Hence 
+					\begin{equation}
+						\begin{split}
+							\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{\bcancel{k^2}k^2}{\bcancel{k^2}(p-k)^2(s-k)^2} &\overbrace{=}^{u=k-s}	\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D} \frac{(u+s)^2}{u^2(p-s-u)^2} \\
+							\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D} \frac{u^2 + s^2 + 2(u\cdot s)}{u^2(p-s-u)^2} &= \frac{1}{4}[s^2 I_2(p-s) + s\cdot(p-s) I_2(p-s)] \\
+						&= \frac{1}{4}[(p\cdot s)I_2(p-s)]
+						\end{split}
+					\end{equation}	
+				\item 
+					\begin{equation}
+						\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{-2\bcancel{k^2}\bcancel{(p-k)^2}}{\bcancel{k^2}\bcancel{(p-k)^2}(s-k)^2} = \frac{-2}{4}I_1(s) = 0,  
+					\end{equation}
+					where we defined 
+					\begin{equation}
+						I_1(p) \equiv \frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{1}{(p-k)^2} = 0,  
+					\end{equation}
+					\textcolor{red}{im not sure if this is true 0000 .. haver to proofe}
+				\item
+					\begin{equation}
+						\begin{split}
+					 		\frac{\mu^{2\epsilon}}{4}\int\frac{d^dk}{(2\pi)^D}\frac{\bcancel{(p-k)^2}(p-k)^2}{k^2\bcancel{(p-k)^2}(s-k)^2} &= \frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{p^2 + k^2 - 2pk}{k^2(s-k)^2} \\
+							&= \frac{1}{4}[pI_2(s)+I_1(s)-(p\cdot s)I_2(s)]
+						\end{split}
+					\end{equation}
+			\end{enumerate}
+			Combining all integral solutions yields
+			\begin{equation}
+				\begin{split}
+					\Gamma_{i)\alpha} &= \frac{1}{4}[(p\cdot p)^2I_3(p,s)+2p^2I_2(p-s)-2p^2I_2(s) \\
+					&+(s\cdot p)I_2(p-s)-2I_1(s)+pI_2(s)+I_1(s)-(p\cdot s)I_2(s)]
+				\end{split}
+			\end{equation}
+			Now we want to repeat the same calculation for the $\beta$ integral, where p is exchanged with s. \\\\
+			$\beta)$
+			\begin{equation}
+				\begin{split}
+					\frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{[s^2+k^2-(s-k)^2]^2}{k^2(p-k)^2(s-k)^2} &= \frac{\mu^{2\epsilon}}{4}\int\frac{d^Dk}{(2\pi)^D}\frac{s^4+2s^2k^2-2(s-k)^2+k^4-2k^2(s-k)^2+(s-k)^4}{k^2(p-k)^2(s-k)^2} \\ 
+					&= \frac{1}{4}[2s^2I_2(p-s)-2s^2I_2(p)+(s\cdot p)I_2(p-s)+s^2I_2(p)-(s\cdot p)I_2(p)]
+				\end{split}
+			\end{equation}
+			Adding now the final terms for $\alpha)$ and $\beta)$ yields
+			\begin{equation}
+				\alpha + \beta = \frac{1}{4}[(p^4+s^4)I_3(p,s)+2(p^2+s^2+p\cdot s)I_2(p-s) - (s^2+p\cdot s)I_2(p) -(p^2+p\cdot s)I_2(s)]
+			\end{equation}
+			Before getting to the last equation we still have to evaluate the right-hand side. Hence
+			\begin{equation}
+				\begin{split}
+					&[p^\mu p^\nu+s^\mu s^\nu] \left\{ g_{\mu\nu}A + [p_\mu p_\nu + s_\mu s_\nu]B+ [p_\mu s_\nu + p_\nu s_\mu]C \right\} \\
+					&= [p^2+s^2]A+[p^4+2(p\cdot s)^2+s^4]B+[2(p\cdot s)(p^2+s^2)]C
+				\end{split}
+			\end{equation}
+		\item
+			Now we will evaluate the last equation. Starting with the left-hand side thus
+			\begin{equation}
+				\begin{split}
+					\Gamma_{iii} &= [p^\mu s^\nu p^\nu s^\mu]\mu^{2\epsilon}\int\frac{d^Dk}{(2\pi)^D}\frac{k_\mu k_\nu}{k^2(p-k)^2(s-k)^2} \\
+					 &= \mu^{2(\epsilon)}\int\frac{d^Dk}{(2\pi)^D}\frac{2(p\cdot k)(s\cdot k)}{k^2(p-k)^2(s-k)^2} \\
+					&= \frac{\mu^{2\epsilon}}{2}\int\frac{d^Dk}{(2\pi)^D} \frac{p^2s^2+p^2k^2-p^2(s-k)^2+k^2s^2+k^4-k^2(s-k)^2-s^2(p-k)^2-k^2(p-k)^2+(p-k)^2(s-k)^2}{k^2(p-k)^2(s-k)^2} \\	
+					&= \frac{1}{2}[p^2s^2I_3(p,s)+p^2I_2(p-s)-p^2I_2(p)+s^2I_2(p-s)+(s\cdot p)I_2(p-s)-s^2I_2(s)-I_1(s)+I_1(0)] \\
+					&= \frac{1}{2}\left\{p^2s^2I_3(p,s)+[p^2+s^2+(s\cdot p)]I_2(p-s)-p^2I_2(p)-s^2I_2(s)\right\}
+				\end{split}
+			\end{equation}	
+			And finally the right-hand side hence
+			\begin{equation}
+				\begin{split}
+					[p^\mu s^nu + p^\nu s^\mu]\left\{g_{\mu\nu}A+[p_\mu p_\nu + s_\mu s_\nu]B+[p_\mu s_\nu p_\nu p_\mu]C\right\} \\
+					= (2p\cdot s)A + 2[p^2(p\cdot s)+s^2(p\cdot s)]B+2[p^2s^2+(p\cdot s)^2]C
+				\end{split}
+			\end{equation}
+	\end{enumerate}
+	With the help of Mathematica (\textcolor{red}{add script into appendix}) now have the result for the appearing integral of our first diagram
+	\begin{equation}
+		\int \frac{d^Dk}{(2\pi)^D} \frac{k_\mu k_\nu}{k^2(p-k)^2(s-k)^2} = \frac{i}{(4\pi)^2}\frac{1}{4\epsilon}g_{\mu\nu} + \mathcal{O}(1),
+	\end{equation}
+	with 
+	\begin{equation}
+		A = \frac{i}{(4\pi)^2} \frac{1}{4\epsilon} + \mathcal{O}(1), \qquad B = \mathcal{O}(1), \qquad C = \mathcal{O}(1).
+	\end{equation}
+	Inserting the above expression in our Green's function Eq. \ref{eq:aPreIntegralGreensFunction} yields
+	\begin{equation}
+		\Gamma_{amp} = \frac{g_s^2}{(4\pi)^2} C_F \delta^{ij}\delta^{kl}\left\{ \frac{1}{4\epsilon} \left[ \gamma_\sigma\gamma^\lambda\Gamma_1\gamma_\lambda\gamma^\sigma\right]^{AB}_{\alpha\beta} -(1-a) \frac{1}{\epsilon}\left[\Gamma_1\right]^{AB}_{\alpha\beta}\right\}\left[\Gamma_2\right]^{BA}_{\delta\gamma} 
+	\end{equation}
+	Notice, that the second integral is the same integral as in Eq. \ref{eq:aiIntegral} and could easily be transvered into $I_2(p-s)$ by subsitution.
+	Now we want to substitute 
+	\begin{equation}
+		\Gamma_1 = \Gamma_2 = \gamma_\mu \qquad \text{and} \qquad \Gamma_1 = \Gamma_2 = \gamma_\mu \gamma_5
+	\end{equation}
+	\textcolor{red}{why can we set $\Gamma_1 = \Gamma_2$}
+	Regarding only important terms and making use of Eq. \ref{eq:threeGammaContraction}. Hence for $\Gamma_1 = \gamma_\mu$
+	\begin{equation}
+			\gamma_\sigma \gamma^\lambda \gamma_\mu \gamma_\lambda \gamma^\sigma = (2-D)\gamma_\sigma \gamma_\mu \gamma^\sigma = (2-D)^2 \gamma_\mu = (2-4+2\epsilon)^2 \gamma_\mu \xrightarrow[]{\epsilon \to 0} 4 \gamma_\mu = 4\Gamma_1,
+	\end{equation}
+	and for axial-vector substitution $\Gamma_1 = \gamma_\mu \gamma_5$	
+	\begin{equation}
+		\gamma_\sigma \gamma^\lambda \gamma_\mu \gamma_5 \gamma_\lambda \gamma^\sigma \xrightarrow[]{\epsilon \to 0} 4 \Gamma_1.
+	\end{equation}
+	Therefore we are left in both cases with the applied $\Gamma_1$ structure 
+	\begin{equation}
+		\begin{split}
+			\Gamma_{amp} &= \frac{g_s^2}{(4\pi)^2} C_F \delta^{ij}\delta^{kl}\left\{ \frac{1}{4\epsilon} \left[ 4 \Gamma_1 \right]^{AB}_{\alpha\beta} -(1-a) \frac{1}{\epsilon}\left[ \Gamma_1 \right]^{AB}_{\alpha\beta}\right\}\left[ \Gamma_1 \right]^{BA}_{\delta\gamma}  \\
+			 &= \frac{a g_s^2}{(4\pi)^2} C_F \delta^{ij}\delta^{kl} \frac{1}{\epsilon}\left[ \Gamma_1 \right]^{AB}_{\alpha\beta}\left[ \Gamma_2 \right]^{BA}_{\delta\gamma} 
+		\end{split}
+	\end{equation}	
+	One can easily see the gauge dependence of the above term. As we are working in a gauge-independent theory the contribution of the a-diagram (for both cases: $\Gamma_1 = \gamma_\mu$ and $\Gamma_1 = \gamma_\mu \gamma_5$) to our striven divergency is zero.  \\
+	Having calculated our first loop contribution we know want to continue with the second diagram b. We have been very explicit about the method of calculating the divergent distribution in our first diagram, however we now want to apply a method of direclty writing down the needed terms from the displayed diagram
+	\textcolor{red}{all the fucking diagrams}
+	\begin{equation}
+		\Gamma = i g^2_s C_F \delta^{ij}\delta^{kl} \int \frac{d^D k}{(2\pi)^D} \left[ S(p_1) \Gamma_1 S(p_2)  \right]^{AB}_{\alpha\beta} \left[ S(p_3) \gamma^\lambda S(p_3-k) \Gamma_2 S(p_4-k) \gamma^\sigma \right]^{BA}_{\delta\gamma},
+	\end{equation}
+	where we simply followed the in and outgoing impulses. The prefactors come from the fact that we still have to deal with seven propagators (i), the quark-gluon coupling ($g_s^2$), the gluon color structure ($C_F$) and the color structure of ourexternal quark fields ($\delta^{ij}\delta^{kl}$). As we are regarding a loop, we have to face the integral $\int d^D k/(2\pi)^D$. Starting now to follow the impulses, from the left upper sides, yields a factor $S(p_1)$ followed by the crossing of the four-quark operator, giving and additional factor $\Gamma_1$. Because of the outgoing impuls $p_2$ we have to add another factor $S(p_2)$. The flavor and dirac structure can easily be checked by our a-diagram computation. Now we are leftover with the lower part of the diagram. Repeating the same steps, as mentioned above, we only have to deal with the vertices, given by the gluon propagator, yielding instead of a $\Gamma$ while crossing a factor $\gamma_\lambda$. Finally the flavor and dirac strucutre can also easily be checked with our calulations of the ultimately calculated diagram. Amputating the external fields will give us
+	\begin{equation}
+		\begin{split}
+			\Gamma_{amp} &= i g_s^2 C_F \delta^{ij}\delta^{kl} \left[\Gamma_1\right]^{AB}_{\alpha\beta} \int \frac{d^Dk}{(2\pi)^D} \left[\gamma^\lambda S(p_3-k) \Gamma_2 S(p_4-k) \gamma^\sigma \right]^{BA}_{\delta\gamma} \frac{1}{k^2}\left[-g_{\lambda\sigma } + (1-a) \frac{k_\lambda k_\sigma}{k^2}\right] \\
+			&= i g_s^2 C_F \delta^{ij}\delta^{kl} \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left\{ \int\frac{d^Dk}{(2\pi)^D} \frac{-k_\rho k_\sigma}{k^2(p-k)^2(s-k)^2} \left[\gamma_\lambda \gamma^\rho \Gamma_2 \gamma^\sigma \gamma^\lambda \right]^{BA}_{\delta\gamma} + (1-a) \int\frac{d^Dk}{(2\pi)^D}\right\} \\ 
+			&= \frac{g_s^2}{(4\pi)^2} \frac{a}{\epsilon} C_F \delta^{ij}\delta^{kl} \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma}
+		\end{split}
+	\end{equation}
+	Now we will continue with the calculation of the amputated Green's functions of the leftover Diagrams. Thus for diagram c) we get, using the same method as for b),
+	\begin{equation}
+		\begin{split}
+			\Gamma^c_{amp} &= i g_s^2 (t^b)^{ij}(t^b)^{kl} \int \frac{d^Dk}{(2\pi)^D} \left[\gamma^\lambda S(p_1-k) \Gamma_1 \right]^{AB}_{\alpha\beta} \left[\gamma^\sigma S(p_3 + k) \Gamma_2 \right]^{BA}_{\delta\gamma} D_{\lambda\sigma}(k) \\
+			&= i g_s^2 (t^b)^{ij}(t^b)^{kl} \int \frac{d^Dk}{(2\pi)^D} \frac{1}{k^2(p_1-k)^2(p_3+k)} \left[-\gamma^\lambda k\!\!\!/ \Gamma_1 \right]^{AB}_{\alpha\beta} \left[\gamma^\sigma k\!\!\!/ \Gamma_2 \right]^{AB}_{\delta\gamma} \left[-g_{\lambda\sigma} + (1-a) \frac{k_\lambda k_\sigma}{k^2} \right] \\
+			&= i g_s^2 (t^b)^{ij} (t^b)^{kl}\left\{ \int \frac{d^Dk}{(2\pi)^D} \frac{k_\omega k_\nu}{k^2(p_1-k)^2(p_3+k)} \left[\lambda_\sigma \lambda^\omega \Gamma_1 \right]^{AB}_{\alpha\beta} \left[\gamma^\sigma \gamma^\nu \Gamma_2\right]^{BA}_{\delta\gamma} - \int \frac{d^Dk}{(2\pi)^D} \frac{(1-a)}{k^4(p_1 -k)^2(p_3+k)^2} \left[k^2 \Gamma_1\right]^{AB}_{\alpha\beta} \left[k^2 \Gamma_2\right]^{BA}_{\delta\gamma} \right\} \\
+			&= - \frac{g_s^2}{(4\pi)^2} (t^b)^{ij} (t^b)^{kl} \frac{1}{\epsilon} \left\{ \frac{g_{\omega\nu}}{4} \left[\gamma_\sigma \gamma^\omega \Gamma_1 \right]^{AB}_{\alpha\beta} \left[\gamma^\sigma \gamma^\nu \Gamma_2 \right]^{BA}_{\delta\gamma} - (1-a) \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma}\right\}  \\
+			&= - \frac{g_s^2}{(4\pi)^2} (t^b)^{ij} (t^b)^{kl} \frac{1}{\epsilon} \left\{ \frac{1}{4} \left[\gamma_\sigma \gamma_\omega \Gamma_1 \right]^{AB}_{\alpha\beta} \left[\gamma^\sigma \gamma^\omega \Gamma_2 \right]^{BA}_{\delta\gamma} - (1-a) \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma}\right\} 
+		\end{split}
+	\end{equation}
+	Diagram d)
+	\begin{equation}
+		\begin{split}
+			\Gamma^d_{amp} &= ig_s^2 (t^b)^{ij} (t^b)^{kl} \int \frac{d^D k}{(2\pi)^D} \left[\Gamma_1 S(p_2+k) \gamma^\lambda \right]^{AB}_{\alpha\beta} \left[\Gamma_2 S(p_4-k)\gamma^\sigma \right]^{BA}_{\delta\gamma} D_{\lambda\sigma}(k) \\
+			&= i g_s^2 (t^b)^{ij} (t^b)^{kl} \left\{\int \frac{d^D k}{(2\pi)^D} \frac{k_\omega k_\nu}{k^2(p_2+k)^2(p_4-k)^2} \left[ \Gamma_1 \gamma_\sigma \gamma^\lambda \right]^{AB}_{\alpha\beta} \left[ \Gamma_2 \gamma^\nu \gamma^\sigma \right]^{BA}_{\delta\gamma}  - (1-a) \int \frac{d^Dk}{(2\pi)^D} \frac{1}{(p_2+k)^2(p_4-k)^2} \left[ \Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma} \right\} \\
+			&= \frac{\alpha_s^2}{4\pi} (t^b)^{ij} (t^b)^{kl} \frac{1}{\epsilon} \left\{ -\frac{1}{4}\left[\Gamma_1 \gamma_\sigma \gamma_\omega\right]^{AB}_{\alpha\beta} \left[ \Gamma_2 \gamma^\omega \gamma^\sigma \right]^{BA}_{\delta\gamma} + (1-a) \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[ \Gamma_2\right]^{BA}_{\delta\gamma}\right\},
+		\end{split}
+	\end{equation}
+	where we introduced \textcolor{red}{explain something about this alpha}
+	\begin{equation}
+		\alpha_s = \frac{g_s^2}{4\pi}
+	\end{equation}
+	Diagram e)
+	\begin{equation}
+		\begin{split}
+			\Gamma^e_{amp} &= i g_s^2 (t^b)^{ij}(t^b)^{kl} \int \frac{d^Dk}{(2\pi)^D} \left[\gamma^\lambda S(p_1 -k)\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2 S(p_4-k)\gamma^\sigma\right]^{BA}_{\delta\gamma} D_{\lambda\sigma}(k) \\
+			&= \frac{\alpha_s}{4\pi} (t^b)^{ij} (t^b)^{kl} \frac{1}{\epsilon} \left\{ \frac{1}{4}\left[ \gamma_\sigma \gamma_\omega \Gamma_1 \right]^{AB}_{\alpha\beta} \left[\Gamma_2 \gamma^\omega \gamma^\sigma \right]^{BA}_{\delta\gamma}- (1-a) \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma} \right\} 
+		\end{split}
+	\end{equation}
+	Diagram f)
+	\begin{equation}
+		\begin{split}
+			\Gamma^f_{amp} &= ig_s^2 (t^b)^{ij} (t^b)^{kl} \int \frac{d^Dk}{(2\pi)^D} \left[\Gamma_1 S(p_2-k) \gamma^\sigma \right]^{AB}_{\alpha\beta} \left[\gamma^\lambda S(p_3-k)\Gamma_2\right]^{BA}_{\delta\gamma} D_{\lambda\sigma}(k) \\
+			&= \frac{\alpha_s}{4\pi}(t^b)^{ij}(t^b)^{kl} \frac{1}{\epsilon} \left\{\frac{1}{4}\left[\Gamma_1\gamma_\omega \gamma_\sigma\right]^{AB}_{\alpha\beta}\left[\gamma^\sigma\gamma^\omega\Gamma_2\right]^{BA}_{\delta\gamma} -(1-a)\left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma} \right\} 
+		\end{split}
+	\end{equation}
+	To get an overview we want to sum up the calculated results. Hence
+	\begin{align}
+		\Gamma^c_{amp} &= \frac{\alpha_s}{4\pi}\frac{1}{\epsilon} (t^b)^{ij}(t^b)^{kl} \left\{ -\frac{1}{4} \left[\gamma_\sigma \gamma_\omega \Gamma_1\right]^{AB}_{\alpha\beta} \left[\gamma^\sigma\gamma^\nu\Gamma_2\right]^{BA}_{\delta\gamma} + (1-a) \left[\Gamma_1\right]^{AB}_{\alpha\beta}\left[\Gamma_2\right]^{BA}_{\delta\gamma}\right\} \\
+		\Gamma^d_{amp} &= \frac{\alpha_s}{4\pi} \frac{1}{\epsilon} (t^b)^{ij} (t^b)^{kl}  \left\{ -\frac{1}{4}\left[\Gamma_1 \gamma_\sigma \gamma_\omega\right]^{AB}_{\alpha\beta} \left[ \Gamma_2 \gamma^\omega \gamma^\sigma \right]^{BA}_{\delta\gamma} + (1-a) \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[ \Gamma_2\right]^{BA}_{\delta\gamma}\right\} \\
+		\Gamma^e_{amp} &= \frac{\alpha_s}{4\pi} \frac{1}{\epsilon}(t^b)^{ij} (t^b)^{kl}  \left\{ \frac{1}{4}\left[ \gamma_\sigma \gamma_\omega \Gamma_1 \right]^{AB}_{\alpha\beta} \left[\Gamma_2 \gamma^\omega \gamma^\sigma \right]^{BA}_{\delta\gamma}- (1-a) \left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma} \right\}  \\
+		\Gamma^f_{amp} &= \frac{\alpha_s}{4\pi}\frac{1}{\epsilon} (t^b)^{ij}(t^b)^{kl} \left\{\frac{1}{4}\left[\Gamma_1\gamma_\omega \gamma_\sigma\right]^{AB}_{\alpha\beta}\left[\gamma^\sigma\gamma^\omega\Gamma_2\right]^{BA}_{\delta\gamma} -(1-a)\left[\Gamma_1\right]^{AB}_{\alpha\beta} \left[\Gamma_2\right]^{BA}_{\delta\gamma} \right\} 
+	\end{align}
+	While adding all Diagrams one can see that the Gauge dependent terms have an alternating sign and cancel. Thus for the case $\Gamma_1 = \Gamma_2 = \gamma_\mu$ we are left with
+	\begin{equation}
+		\frac{\alpha_s}{\pi\epsilon} (t^b)^{ij} (t^b)^{kl} \left(-\frac{3}{2}\right) \left[\gamma_5 \gamma_\mu\right]^{AB}_{\alpha\beta} \left[\gamma^\mu \gamma_5 \right]^{BA}_{\delta\gamma} = \frac{\alpha_s}{\pi \epsilon}\left(-\frac{3}{2}\right) Q^o_A 
+	\end{equation}
+	and for $\Gamma_1 = \Gamma_2 = \gamma_\mu \gamma_5$
+	\begin{equation}
+		\frac{\alpha_s}{\pi \epsilon}(t^b)^{ij}(t^b)^{kl}\left(-\frac{3}{2}\right) \left[\gamma_\mu\right]^{AB}_{\alpha\beta} \left[\gamma^\mu\right]^{BA}_{\delta\gamma} = \frac{\alpha_s}{\pi \epsilon} \left(-\frac{3}{2}\right) Q^o_V
+	\end{equation}	
+	One should notice that $Q^S_V$ mixes into $Q^O_A$ and $Q^S_A$ mixes into $Q^O_V$.
+	\begin{equation}
+		\begin{split}
+			Q^S_V \rightarrow Q^O_A \\
+			Q^S_A \rightarrow Q^O_V
+		\end{split}
+	\end{equation}
+	Hence $Q^S_-$ mixes into $Q^O_-$
+	\begin{equation}
+		Q^S_- = Q^S_V - Q^S_A \rightarrow Q^O_A - Q^O_V = - Q^O_-.
+	\end{equation}
+	Now we want to calculate the divergencies appearing from the $Q^O_V,A$ operators (with V,A meaning either $Q^O_V$ or $Q^O_A$). Using the operators
+	\begin{equation}
+		Q_-^O = Q^O_V - Q^O_A = q t^a \lambda_\mu \bar q q t^a \lambda_\mu - q t^a \lambda_mu \gamma_5 \bar q q t^a \lambda_\mu \gamma_5 \bar q, 
+	\end{equation}	
+	we get the same structures as appearing in $Q^S_-$ but a different color structure. 
+	\begin{align}
+		\begin{split}
+			\Gamma_{amp}^{O,c} &= \left[ \gamma^\lambda t^a S(p_1 -k) t^b \Gamma_1 \right]^{AB}_{\alpha\beta} \left[ \gamma^\sigma t^a S(p_3 + k) \Gamma_2 t^b \right]^{BA}_{\delta\gamma} D(k)  \\
+			&= [t^a t^b \otimes t^a t^b ] \Gamma^{S,c}_{amp} 
+		\end{split} \\
+		\begin{split}
+			\Gamma_{amp}^{O,d} &=  \left[ \Gamma_1 t^b S(p_2 + k) \gamma^\lambda t^a \right]^{AB}_{\alpha\beta} \left[ \Gamma_2 t^b S(p_4-k) \gamma^\sigma t^a \right]^{BA}_{\delta\gamma} \\
+			&= [t^a t^b \otimes t^a t^b ] \Gamma^{S,d}_{amp} 
+		\end{split} \\	
+		\begin{split}
+			\Gamma^{O,e}_{amp} &= \left[ \Gamma_1 t^b S(p_2-k) \gamma^\sigma t^a \right]^{AB}_{\alpha\beta} \left[ \gamma^\lambda t^a S(p_3 -k) \Gamma_2 t^b \right]^{BA}_{\delta\gamma} \\
+			&= \left[ t^a t^b \otimes t^b t^a \right] \Gamma_{amp}^{S,e}
+		\end{split} \\
+		\begin{split}
+			\Gamma^{O,f}_{amp} &= \left[\gamma^\lambda t^a S(p_1-k) \Gamma_1 t^b \right]^{AB}_{\alpha\beta} \left[ \Gamma_2 t^b S(p_4-k) \gamma^\sigma t^a \right]^{BA}_{\delta\gamma} \\
+			&= \left[ t^a t^b \otimes t^b t^a \right] \Gamma_{amp}^{S,f}
+		\end{split}
+	\end{align}
+	\textcolor{red}{inconsistensy with $(t^b)^{ij}$, a+b still missing}
+	Thus adding terms with the same color strucutre yields
+	\begin{align}
+		\begin{split}
+			\Gamma^{O, c+d}_{amp} &= [t^at^b \otimes t^at^b][\Gamma^{S,c}_{amp} + \Gamma^{s,d}_{amp}] \\
+			&\overset{Q^O_{V,A}}{=} \frac{\alpha_s}{4\pi}\left[\frac{C_F}{4N_c}\mathbb{1}\otimes\mathbb{1} - \frac{1}{N_c}t^a\otimes t^a\right] \left[-\frac{5}{4}Q_{V,A} - \frac{3}{4} Q_{A,V} + (1-a)Q_{V,A} \right] \\
+			&= \frac{\alpha_s}{4\pi} \left[\frac{C_F}{4N_c}\mathbb{1}\otimes\mathbb{1} - \frac{1}{N_c}t^a\otimes t^a\right] \left[\left(-\frac{3}{4}-\frac{a}{2}\right)Q_{V,A} - \frac{3}{4} Q_{A,V} \right] 
+		\end{split} \\
+		\begin{split}	
+			\Gamma^{O,e+f}_{amp} &= \frac{\alpha_s}{4\pi} [t^at^b \otimes t^b t^a] [\Gamma^{S,e}_{amp} + \Gamma^{S, f}_{amp}] \\
+			&\overset{Q^O_{V,A}}{=} \frac{\alpha_s}{4\pi} \left[\frac{C_F}{4N_c} \mathbb{1}\otimes\mathbb{1} +\left(\frac{N_c}{2} - \frac{1}{N_c}\right) t^a\otimes t^a\right] \left[\frac{5}{4} Q_{V,A} - \frac{3}{4}Q_{A,V} - \frac{1}{2}(1-a) Q_{V,A} \right] \\
+			&= \frac{\alpha_s}{4\pi} \left[\frac{C_F}{4N_c} \mathbb{1}\otimes\mathbb{1} +\left(\frac{N_c}{2} - \frac{1}{N_c}\right) t^a\otimes t^a\right] \left[\left(\frac{3}{4} + \frac{a}{2}\right) Q_{V,A} - \frac{3}{4}Q_{A,V} \right] 
+		\end{split}
+	\end{align}
+	\begin{equation}
+		\begin{split}
+			\Gamma_{amp}^{O,a+b+c+d+e+f} &= \frac{\alpha_s}{4\epsilon} -\frac{a}{4N_c} Q^{O}_{V,A} - \frac{3}{2}\frac{C_F}{4N_c}Q^S_{A,V} + \frac{N_c}{2} \left(\frac{3}{4}+\frac{a}{2}\right) Q^O_{V,A} -\frac{3}{4}\frac{N_c}{2}Q^O_{A,V} \\
+			&= \frac{\alpha_s}{4\pi\epsilon} \left[\left(\frac{3}{8} N_c - \frac{a}{4} C_F \right) Q^O_{V,A} - \frac{3}{8}\frac{C_F}{N_c}Q^S_{A,V} + \frac{3}{2} \left( \frac{1}{N_c} - \frac{1}{4} N_c \right) Q^O_{A,V} \right] 
+		\end{split}
+	\end{equation}
+
+	Penguin Diagrams
+	\begin{equation}
+		\begin{split}
+			Q^{S}_{V+A} &= - g_s^2 \int d^Dx_1 d^Dx_2 d^Dx_3 d^Dx_4 d^Dy_1 d^D y_2 d^D z e^{i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4} \\
+				& \cdot \left \langle 0 \left | \left\{ q (x_1) \bar q(x_2) \left[ \bar u \Gamma_1 d \bar d \Gamma_2 u \right] (z) \left[\sum_q \bar q \gamma^\lambda t^b B^b_\lambda q \right] (y_1) \left[\sum_q \bar q \gamma^\sigma t^c B^c_\sigma q \right] (y_2) q (x_3) \bar q(x_4) \right\} \right | 0 \right \rangle \\
+				&= ig_s^2 \left[S^{\bar u}(x_1-z) \Gamma_1 S^d(z-y_1) \gamma^\lambda t^b S^{\bar d}(y_1-z) \Gamma_2 S^u(z-x_2)\right] \delta^{bc} D_{\lambda\sigma} (y_1 - y_2) \left[\sum_q S^{\bar q}(x_3 - y_2) \gamma^\sigma t^c S^q(y_2 - x_4) \right] 
+		\end{split}
+	\end{equation}
+	As usual we want to apply a Fourier transformation. Listing only the appearing exponential functions yields
+	\begin{equation}
+		\begin{split}
+			E_{fct} &= e^{i(p_1x_1 + p_2x_2 + p_3x_3 + p_4x_4)} e^{-ik_1(x_1-z)} e^{-ik_2(z-y_1)} e^{-ik_3(y_1-z)} e^{-ik_4(z-x_2)} e^{-ik_5(y_1-y_2)} e^{-ik_6(x_3-y_2)} e^{-ik_7(y_2-x_4)} \\
+			&= e^{ix_1(p_1-k_1)} e^{ix_2(p_2+k_4)} e^{ix_3(p_3-k_6)} e^{ix_4(p_4+k_7)} e^{iy_1(k_2-k_3-k_5)} e^{iy_2(k_5+k_6-k_7)} e^{iz(k_1-k_2+k_3-k_4)}
+		\end{split}
+	\end{equation}
+	Thus we get the following relations
+	\begin{equation}
+		\begin{split}
+			k_1 = p+1 \qquad k_2 =  p_1 + k \qquad  k+3 = -p_2 + k \qquad k_4 = -p_2 \\
+			k_5 = p_1 + p_2 \qquad k_6 = p_3 \qquad k_7 = -p_4 
+		\end{split},
+	\end{equation}	
+	where we defined $k_3 = -p_2 +k$ and used the from the z integral emerged $-p_3 -p_4 = p_2 + p_1$. Now $\Gamma^{S}_{V+A}$ reads as 
+	\begin{equation}
+		\begin{split}
+			\Gamma^{s}_{V+A} &= ig^2_s \mu^{2\epsilon} \int \frac{d^Dk}{(2\pi)^D} \left[S^{\bar u}(p_1) \Gamma_1 S^d(p_1+k) \gamma^\lambda t^b S^{\bar d}(-p_2 + k) \Gamma_2 S^u(-p_2)\right] \\
+			&\cdot \sum_q \left[S^{\bar q}(p_3) \gamma^\sigma t^b S^q(-p_4) \right] D_{\lambda\sigma}(p_1+p_2) 
+		\end{split}	
+	\end{equation}
+	Amputating once again the external propagators gives us
+	\begin{equation}	
+		\Gamma_{amp} = i g^2_s \mu^{2\epsilon} \int \frac{d^Dk}{(2\pi)^D} \left[\Gamma_1 S^d(p_1+k) \gamma^\lambda t^b S^{\bar d}(-p_2+k) \Gamma_2\right]^{\bar u u} \sum_q [\gamma^\sigma t^b]^{\bar q q} D_{\lambda \sigma (p_1 + p_2)}
+	\end{equation}
+	Performing the subsitution	
+	\begin{equation}
+		p_1+p_2 = p \qquad -p_2 + k -s
+	\end{equation}
+	leaves us
+	\begin{equation}
+		\begin{split}
+			\Gamma_{amp} &= - ig^2_s \mu^{2 \epsilon} \int \frac{d^D s}{(2 \pi)^D} \left[\Gamma_1 S^d(p-s) \gamma^\lambda t^b S^{\bar d}(-s) \Gamma_2 \right]^{\bar u u} \sum_q \left[\gamma^\sigma t^b \right]^{\bar q q} D_{\lambda\sigma}(p) \\
+			&= i g^2_s \mu^{2\epsilon} \int \frac{d^Ds}{(2\pi)^D} \frac{(s)_\beta (p-s)_\alpha}{s^2 (p-s)^2} \left[\Gamma_1 \gamma^\alpha \gamma^\lambda \gamma^\beta \Gamma_2 t^b\right]^{\bar u u} \sum_q \left[ \gamma^\sigma t^b \right]^{\bar q q} \left[-g_{\lambda\sigma} + (1-a) \frac{p_\lambda p_\sigma}{p^2}\right]\frac{1}{} 
+		\end{split}	
+	\end{equation}
+	Using the integral
+	\begin{equation}
+		\int \frac{d^Ds}{(2\pi)^D} \frac{s_\beta (p-s)_\alpha}{s^2(p-s)^2} = \frac{i}{(4\pi)^2} \left(\frac{4\pi \mu^2}{-p^2}\right)^\epsilon \frac{\Gamma(2-\epsilon)^2}{\Gamma(4-2\epsilon)} \Gamma(\epsilon) \left[\frac{p^2}{\textcolor{red}{2}(1-\epsilon)}g_{\alpha\beta} + p_\alpha p_\beta \right]
+	\end{equation}
+	Hence 
+	\begin{equation}
+		\begin{split}
+			\Gamma_{amp} &= \frac{i}{(4\pi)^2} \left(\frac{4\pi \mu^2}{-p^2}\right)^\epsilon \frac{\Gamma(2-\epsilon)^2}{\Gamma(4-2\epsilon)} \Gamma(\epsilon)  \left\{ \frac{p^2}{\textcolor{red}{2}(1-\epsilon)} \left[\Gamma_1 \gamma^\alpha \gamma^\lambda \gamma_\alpha \Gamma_2 t^b \right]^{\bar u u} + \left[\Gamma_1 p\!\!\!/ \gamma^\lambda p\!\!\!/ \Gamma_2 t^b\right]^{\bar u u} \right\} \\
+			&= \sum_q \left[\gamma^\sigma t^b\right]^{\bar q q} \left[-g_{\lambda\sigma} + (1-a) \frac{p_\lambda p_\sigma}{p^2}\right]\frac{1}{p^2}
+		\end{split}
+	\end{equation}
+	Regarding the case $\Gamma_1 = \Gamma_2 = \gamma_\mu$ we see that \textcolor{red}{ref equation}
+	\begin{equation}
+		\gamma_\mu \gamma^\alpha \gamma_\beta \gamma^\mu = (2-D)^2 \gamma^\lambda = (2 - 4 + 2\epsilon)^2 \gamma^\lambda = -2(1-\epsilon) \gamma^\lambda	
+	\end{equation}
+	and
+	\begin{equation}
+		\left[\gamma_\mu \gamma^\alpha \gamma^\mu \gamma^\beta \gamma^\mu\right] p_\alpha p_\beta = \gamma_\mu \gamma^\lambda \gamma^\mu p^2 = -2(1-\epsilon) \gamma^\lambda p^2
+	\end{equation}
+	For the case $\Gamma_1 = \Gamma_2 = \gamma_\mu \gamma_5$ we get the same result, which we can easily shown by
+	\begin{equation}
+		\gamma_\mu \gamma_5 \gamma^\alpha \gamma^\lambda \gamma_\alpha \gamma^\mu \gamma_5 = \gamma_\mu \gamma^\lambda \gamma_\alpha \gamma^\mu \gamma_5 \gamma_5 = \gamma_\mu \gamma^\alpha \gamma^\lambda \gamma_\alpha \gamma^\mu
+	\end{equation}
+	Hence
+	\begin{equation}
+		\begin{split}
+			\Gamma^S_{amp, V} &= \frac{i}{(4\pi)^2} \left(\frac{4\pi \mu^2}{-p^2}\right)^\epsilon \frac{\Gamma(2-\epsilon)^2}{\Gamma(4-2\epsilon)} \Gamma(\epsilon) \left\{ p^2 2(1-\epsilon) \left[\gamma^\lambda t^b\right]^{\bar uu} + 2(1-\epsilon) \gamma^\lambda t^b p^2 \right\} \\
+			&= \sum_q \left[\gamma^\sigma t^b\right]^{\bar qq} \left[-g_{\lambda\sigma} + (1-a) \frac{p_\lambda p_\sigma}{p^2} \right] \frac{1}{p^2} \\
+			&= \frac{i}{(4\pi)^2} \left(\frac{4\pi \mu^2}{-p^2}\right)^\epsilon \frac{\Gamma(2-\epsilon)^2}{\Gamma(4-2\epsilon)} \Gamma(\epsilon) 4(1-\epsilon) \left\{ \left[ \gamma^\lambda t^b \right]^{\bar uu} \sum_q \left[ \gamma_\lambda t^b \right]^{\bar qq} + (1-a) \frac{\left[p\!\!\!/ t^b\right]^{\bar uu} \left[p\!\!\!/ t^b\right]^{\bar qq}}{p^2}\right\} \\
+			&= -\frac{a_s}{6} \left[\frac{1}{\hat \epsilon} - ln \left(\frac{-p^2}{\mu^2}\right) + \frac{2}{3} + \mathbb{O}(\epsilon) \right] \left\{ \left[ \gamma^\lambda t^b \right]^{\bar uu} \sum_q \left[ \gamma_\lambda t^b \right]^{\bar qq} + \frac{\left[p\!\!\!/ t^b\right]^{\bar uu} \left[p\!\!\!/ t^b\right]^{\bar qq}}{p^2}\right\} 
+		\end{split}
+	\end{equation}
+	We are only interested in the mixing into local operators. Thus we only pick momentum independent and divergent terms
+	\begin{equation}
+		-\frac{a_s}{6} \frac{1}{\epsilon} \left[\gamma_\lambda t^a\right]^{\bar uu} \sum_q \left[\gamma^\lambda t^a\right]^{\bar qq}.
+	\end{equation}
+	As the vector and axial-vector structure of the penguin diagrams turns out to be the same (due to \textcolor{red}{reference}) the penguin diagrams for $Q^{S,O}_{V-A}$ vanish. 
+	Penguin Diagram Oktett $Q^O_{V+A}$
+	\begin{equation}
+		\begin{split}
+			\Gamma^{O}_{V,A} &= - g^2_s \int d^Dx_1 d^Dx_2 d^Dx_3 d^Dx_4 d^Dy_1 d^Dy_2 d^Dz e^{i(p_1x_1+p_2x_2+p_3x_3+p_4x_4}  \\
+			&\cdot \left \langle \left | 0 \left\{ q(x_1) \bar q(x_2) \left[\bar u \Gamma_1 t^a u \sum \bar q \Gamma_2 t^a q \right](z) \left [\sum_q \bar q \gamma^\lambda t^b B^b_\lambda q \right](y_1) \left[\bar q \gamma^\sigma t^c B^c_\sigma q \right](y_2) q(x_3)\bar q(x_4) \right\} \right | 0 \right \rangle \\
+			&= ig^2_s \int d^Dx_1 d^Dx_2 d^Dx_3 d^Dx_4 d^Dy_1 d^Dy_2 d^D z \left[S^{\bar u}(x_1-z) \Gamma_1 t^a S^u(z-x_2) \right] \sum_q Tr\left[S(x-y_1)\gamma^\lambda t^b S(y_1-z) \Gamma_2 t^a \right] \left[S^{\bar q}(x_3 - y_2) \gamma^\sigma t^c S^q(y_2 -x_4)\right] D_{\lambda\sigma}(y_1-y_2)
+		\end{split}
+	\end{equation}
+	As usual we are going to perform a Fourier-transformation. We will only display the needed expentential functions, hence
+	\begin{equation}
+		\begin{split}
+			E_{fct} &= e^{i(x_1p_1+x_2p_2+x_3p_3+x_4p_4)} e^{-ik_1(x_1-z)} e^{-ik_2(z-x_2)} e^{-ik_3(z-y_1)} e^{-ik_4(y_1-z)} e^{-ik_5(y_2-x_4)} e^{-ik_6(x_3-y_2)} e^{-k_7(y_1-y_2)} \\
+			&= e^{ix_1(p_1-k_1)} e^{ix_2(p_2+k_2)} e^{ix_3(p_3-k_6)} e^{ix_4(p_4+k_5)} e^{iy_1(k_3-k_4-k_7)} e^{iy_2(-k_5+k_6+k_7)} e^{iz(k_1-k_2-k_3+k_4)}
+		\end{split}
+	\end{equation}
+	Thus we get the following relations after integrating over $x_1, x_2, x_3, x_4, y_1, y_2$ and $z$
+	\begin{equation}
+		\begin{split}
+			k_1 = p_1 \qquad k_2 = -p_2 \qquad k_3 = p_1 -k \qquad k_4 \equiv  k_4 + p_2 \\
+			 k_5 = -p_4 \qquad k_6 = p_3 \qquad k_7 = p_1 + p_2
+		\end{split}
+	\end{equation}
+	where we once again defined $k_4 \equiv k_4 + p_2$ and used the relation appearing from the integral over z to determine $k_7$. Using the above relations we are left with
+	\begin{equation}
+		\begin{split}
+			\Gamma^O_{V,A} &= ig^2_s Tr[t^b t^a] \int \frac{d^Dk}{(2\pi)^D} \left[S^{\bar u}(p_1) \Gamma_1 t^a S^u(-p_2) \right] \sum_q Tr[S(p_1-k) \gamma^\lambda S(k+p_2)\Gamma_2] \left[S^{\bar q}(p_3)\gamma^\sigma t^c S^q(-p_4)\right] D_{\lambda\sigma} (p_1+p_2)  
+		\end{split}
+	\end{equation}
+	Substituting
+	\begin{equation}
+		p_1 + p_2 = p \qquad s=p_2+k
+	\end{equation}
+	and amputating the external propagators yields
+	\begin{equation}
+		\begin{split}
+			\Gamma^{O}_{amp, V,A} &= -ig^2_s Tr[t^a t^b] \int \frac{d^Ds}{(2\pi)^D} Tr\left[S(p-s) \gamma^\lambda S(s)\Gamma_2\right] [\Gamma_1 t^a]^{\bar uu} [\gamma^\sigma t^b]^{\bar qq} D_{\lambda\sigma}(p) \\
+		\end{split}
+	\end{equation}
+	Making use of some color matrix relations
+	\begin{equation}
+		t^a = \frac{\lambda^a}{2} \qquad Tr[\lambda^a \lambda^b] = 2 \delta^{ab}
+	\end{equation}	
+	and regarding the case $\Gamma_1=\Gamma_2=\gamma_\mu$ gives us
+	\begin{equation}
+		\begin{split}
+			\Gamma^{O}_{amp, V} = \frac{-g^2_s}{2} \delta^{ab} \int \frac{d^Ds}{(2\pi)^D}\frac{s_\beta (p-s)_\alpha}{s^2(p-s)^2} Tr[\gamma^\alpha \gamma^\lambda \gamma^\beta \gamma^\mu] \left[-g_{\gamma\sigma} +(1-a)\frac{p_\lambda p_\sigma}{p^2}\right]\frac{1}{p^2} \left[\gamma_\mu t^a\right]^{\bar uu} \left[\gamma^\sigma t^b\right]^{\bar qq}
+		\end{split}
+	\end{equation}
+	\textcolor{red}{no idea how to contract shit}
+	One should notice, that the second type of penguin diagrams only appears when we deal with octett operators, due to the trace over the color matrices and that these diagrams also vanishes when we regard the axial-vector case $\Gamma_1 = \Gamma_2 = \gamma_\mu \gamma_5$, due to the emerging odd number of gamma matrices in the trace within the integral.
+	\section{$Q_1$ mixing}
+	\begin{equation}
+		Q_1 = Q^O_V + Q^O_A = \bar u \gamma_\mu t^a d \bar d \gamma^\mu u + \bar u \gamma_\mu \gamma_5 t^a \bar d \gamma^\mu \gamma_5 t^a u
+	\end{equation}
+	To compute the first row of the aimed at anamalous dimension matrix we can use our previous results, but have to be aware, that this time, the resulting penguin diagrams do not cancel. Starting by the summation of the normal diagrams we get
+	\begin{equation}
+		\begin{split}
+			\Gamma_{a,b,c,d,e,f} &= \frac{a_s}{\epsilon} \left[\frac{3 N_c}{8}Q^O_{V,A} - \frac{3 C_F}{4N_C}Q^S_{A,V} - \frac{3}{4}\left(\frac{N_C}{2} - {2}{N_C} \right)Q^O_{A,V}\right] \\
+			&\overset{Q_1}{=} \frac{a_s}{\epsilon} \left[\frac{3 N_c}{8}Q_1 - \frac{3 C_F}{4N_C}Q_2 - \frac{3}{4}\left(\frac{N_C}{2} - {2}{N_C} \right)Q_1\right] \\
+			&\overset{Q_1}{=} \frac{a_s}{\epsilon} \left[\frac{3}{2N_C} Q_1- \frac{3 C_F}{4N_C}Q_2 \right].
+		\end{split}
+	\end{equation}
+	Consequently yielding the following renormalization constants
+	\begin{equation}
+		Z_{11} = \frac{3}{2N_C} \qquad Z_{12} = - \frac{3C_F}{4N_C}
+	\end{equation}
+	and thus for the anamalous dimension matrix entries
+	\begin{equation}
+		\gamma_{11} = - \frac{3}{N_C} \qquad \gamma_{12} = \frac{3C_F}{2N_C}.
+	\end{equation}
+	Having dealt with the normal diagrams we now want to regard the impact of the penguin diagrams. We have calculated one type of penguin diagrams in \textcolor{red}{reference}. For $Q_1$ we have to sum over the vector and axial-vector strucutres yielding
+	\begin{equation}
+		\Gamma^{Q_1}_{pen,amp} = \frac{a_s}{\epsilon} \frac{2}{2N_C6} \left\{\left[\gamma_\mu t^a\right]^{\bar uu} + \left[\gamma_\mu t^a\right]^{\bar dd} \right\} \sum_q \left[\gamma^\mu t^a \right]^{\bar qq}.
+	 \end{equation}
+	\textcolor{red}{derive this shit!}
+	Consequently or renormalization constant is given by
+	\begin{equation}
+		Z_{13} = \frac{1}{6N_C}. 
+	\end{equation}
+	For the entry in our anamalous dimension matrix we obtain 
+	\begin{equation}
+		\gamma_{13} = -\frac{1}{3 N_C}
+	\end{equation}
+
+	\section{$Q_2$ mixing}
+	The $Q_2$ operator is defined by
+	\begin{equation}
+		Q_2 = Q^S_V + Q^S_A = \bar u \gamma_\mu d \bar d \gamma_\mu u + \bar u \gamma_\mu \gamma_5 d \bar d \gamma_\mu \gamma_5 u.
+	\end{equation}
+	Therefore we can use our calculations for the $Q^S_{V-A}$ calculations (\textcolor{red}{reference}), yielding
+	\begin{equation}
+		\Gamma^{Q^S_{V+A}} = \frac{a_s}{\epsilon} \frac{3}{2} Q^O_{V+A} = \frac{a_s}{\epsilon} \frac{3}{2} Q_1.
+	\end{equation}
+	Consequently we obtain
+	\begin{equation}
+		Z_{21} = \frac{3}{2} \qquad \text{and} \qquad \gamma_{21} = -3.
+	\end{equation}
+	The penguin diagram contribution is only given by two times the first type of diagram, as we need to sum over the vector and axial-vectorial input
+	\begin{equation}
+		\Gamma^{Q_2}_{pen} = -\frac{2}{6} \frac{a_s}{\epsilon}.
+	\end{equation}
+	Hence
+	\begin{equation}
+		Z_{23} = -\frac{2}{6} \qquad \text{and} \qquad \gamma_{23} = \frac{2}{3}.
+	\end{equation}
+
+	\section{$Q_3$ mixing}
+
+	\section{Anomalous Dimension Matrix}	
+	\begin{equation}
+		\gamma_{Q_+}(a_\mu) = 
+		\begin{pmatrix}
+			-\frac{3}{N_C} & \frac{3C_F}{2N_C} &-\frac{1}{3N_C} & 0 & 0 & 0 & 0 & 0 & 0
+			\\
+			-3 & 0 & \frac{2}{3} & 0 & 0 & 0 & 0 & 0 & 0
+		\end{pmatrix}
+		a_\mu + \mathcal{O}(a^2_\mu)
+	\end{equation}
+	\\\\
+
+		
+	\begin{fmffile}{samplepics2}
+		\begin{fmfgraph*}(150,100)
+			\fmfleftn{i}{2} \fmfrightn{o}{2}
+			\fmf{fermion, label=$\vec p_3$}{i1,z}
+			\fmf{fermion, label=$\vec p_1-\vec k$, tension=1.5, label.side=right}{y1,z}
+			\fmf{fermion, label=$-\vec p_2 - \vec k$, tension=1.5}{z,y2}
+			\fmf{fermion, label=$-\vec p_4$, label.side=right}{z,o1}
+			\fmf{fermion, label=$\vec p_1$, tension=2}{i2,y1}
+			\fmf{fermion, label=$-\vec p_2$, label.side=left, tension=2}{y2,o2}
+			\fmfv{decoration.shape=square, decoration.size=6, label=z}{z}
+			\fmflabel{$x_1$}{i2}
+			\fmflabel{$x_3$}{i1}
+			\fmflabel{$x_2$}{o2}
+			\fmflabel{$x_4$}{o1}
+			\fmfv{label=$y_1$, label.dist=2mm, label.angle=-120}{y1}
+			\fmfv{label=$y_2$, label.dist=2mm, label.angle=-60}{y2}
+			\fmfdot{y1,y2}	
+			
+			\fmf{gluon, tension=0, label=$\vec k$}{y1,y2}
+		\end{fmfgraph*}
+		\begin{fmfgraph*}(150,100)
+			\fmfleftn{i}{2} \fmfrightn{o}{2}
+			\fmf{fermion, label=$\vec p_3$, tension=2}{i1,y1}
+			\fmf{fermion, label=$\vec p_3-\vec k$, tension=1.5, label.side=left}{y1,z}
+			\fmf{fermion, label=$-\vec p_4 - \vec k$, label.side=left, tension=1.5}{z,y2}
+			\fmf{fermion, label=$-\vec p_4$, label.side=left, tension=2}{y2,o1}
+			\fmf{fermion, label=$\vec p_1$, label.side=left}{i2,z}
+			\fmf{fermion, label=$-\vec p_2$, label.side=left}{z,o2}
+			\fmfv{decoration.shape=square, decoration.size=6, label=z}{z}
+			\fmflabel{$x_1$}{i2}
+			\fmflabel{$x_3$}{i1}
+			\fmflabel{$x_2$}{o2}
+			\fmflabel{$x_4$}{o1}
+			\fmfv{label=$y_1$, label.dist=2mm, label.angle=120}{y1}
+			\fmfv{label=$y_2$, label.dist=2mm, label.angle=60}{y2}
+			\fmfdot{y1,y2}	
+			
+			\fmf{gluon, tension=0, label=$\vec k$}{y1,y2}
+		\end{fmfgraph*}
+		\begin{fmfgraph*}(150,100)
+			\fmfleftn{i}{2} \fmfrightn{o}{2}
+			\fmf{fermion, label=$\vec p_3$, tension=2}{i1,y2}
+			\fmf{fermion, label=$-\vec p_4$, label.side=left, tension=1}{z,o1}
+			\fmf{fermion, label=$\vec p_1$, label.side=right, tension=2}{i2,y1}
+			\fmf{fermion, label=$-\vec p_2$, label.side=right}{z,o2}
+			\fmf{fermion, label=$\vec p_3-\vec k$, tension=1.5, label.side=right}{y2,z}
+			\fmf{fermion, label=$-\vec p_1 - \vec k$, label.side=left, tension=1.5}{y1,z}
+			\fmfv{decoration.shape=square, decoration.size=6, label=z}{z}
+			\fmflabel{$x_1$}{i2}
+			\fmflabel{$x_3$}{i1}
+			\fmflabel{$x_2$}{o2}
+			\fmflabel{$x_4$}{o1}
+			\fmfv{label=$y_1$, label.dist=2mm, label.angle=60}{y1}
+			\fmfv{label=$y_2$, label.dist=2mm, label.angle=-60}{y2}
+			\fmfdot{y1,y2}	
+			
+			\fmf{gluon, tension=0, label=$\vec k$}{y1,y2}
+		\end{fmfgraph*}
+
+	\end{fmffile}

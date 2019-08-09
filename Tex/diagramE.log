@@ -1,0 +1,14 @@
+This is MetaPost, version 1.902 (TeX Live 2014) (kpathsea version 6.2.0)  3 SEP 2015 17:54
+**diagramE
+(/usr/local/texlive/2014/texmf-dist/metapost/base/mpost.mp
+(/usr/local/texlive/2014/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.005) ) (./diagramE.mp
+(/usr/local/texlive/2014/texmf-dist/metapost/feynmf/feynmp.mp) [1] )
+ 
+Here is how much of MetaPost's memory you used:
+ 397 strings using 6314 characters
+ 1579008 bytes of node memory
+ 923 symbolic tokens
+ 13i,77n,26p,106b,3f stack positions out of 16i,96n,31p,200b,4f
+1 output file written: diagramE.1
+

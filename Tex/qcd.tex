@@ -1,0 +1,51 @@
+\chapter{QCD Basics}
+	\section{Lagranian density}
+	\textcolor{red}{include this shit}
+	\begin{equation}	
+		D^\mu q_f = \equiv [ \partial^\mu-ig_st^aB^\mu_a(x) ]q_f \equiv [\partial^\mu-ig_sB^\mu(x)]q_f
+	\end{equation}
+	\begin{equation}
+		G^{\mu\nu}_a(x) = \partial^\mu B^\mu_a-\partial^\nu B^\mu_a+g_sf^{abc}B^\mu_bB^\nu_c
+	\end{equation}
+	\textcolor{red}{cite rmg06 from matthias, peskin and pascual} \\
+	In this chapter we want to give an introduction to the in the 70's developed Quantumchromodynamics (QCD), beeing the theory of strong interactions. The degree of freedom in QCD are the quark and gluon fields and the classical Lagrangian density is given by
+	\begin{equation}
+		\label{eq:QCDLagrangian}
+		\begin{split}	
+			\mathcal{L}_{QCD}(x) &= -\frac{1}{4} G_{\mu\nu}^a(x) G^{\mu\nu a}(x) + \sum_A \left[ \frac{i}{2} \bar q^A(x) \gamma^\mu D_\mu^\leftrightarrow q^A(x) - m_A \bar q^A(x) q^A(x)\right] \\
+			&= -\frac{1}{4}[\partial^\mu B^nu_a-\partial^\nu B^\mu_a][\partial_mu B^a_\nu - \partial_\nu B^a_\mu] + \sum_f \bar q_f (i\gamma^\mu \partial_\mu -m_f)q_f \\
+			& +g_s B^\mu_a(x)\sum_f\bar q^\alpha_f \gamma^\mu (t^a)_{\alpha\beta} q^\beta_f -\frac{g_s}{2}f^{abc}[\partial\mu B^\nu_a - \partial^nu B^\mu_a]B^b_\mu B^c_\nu \\
+			& - \frac{g^2_s}{4}f^{abc}f_{ade} B^mu_b B^\nu_c B^d_\mu B^e_\nu 
+		\end{split}
+	\end{equation}
+	with $G_{\mu\nu}^a$ beeing the antisymmetric field strength tensor defined by
+	\begin{equation}
+		G_{\mu\nu}^a(x) \equiv \partial_\mu B_\nu^a(x) - \partial_\nu B_\mu^a (x) + g f^{abc} B_\mu^b(x) B_\nu^c(x).
+	\end{equation}
+	The appearing indices are the Greek letters $\mu, \nu, ...$ denote the Lorentz indices 0,1,2,3 and the latin letters a, b, c denote the colours 1, 2, ..., 8. \\
+	Furthermore we used the structure constant of the colour group $f^{abc}$
+	\begin{equation}
+		[T^a, T^b] = if^{abc}T^c, 
+	\end{equation}
+	which is related to the generator $T^a$ of the SU(3) group
+	\begin{equation}
+		T^a = \frac{\lambda^a}{2} \text{with} Tr[\lambda^a, \lambda^b] = 2\delta^{ab}.
+	\end{equation}
+	Finally g is the coupling constant of QCD, quantifying the strength between quark-quark quark-gluon and gluon-gluon interactions. 
+	\\\\
+	\textcolor{red}{Quantisation bla bla}
+	\begin{equation}
+		\label{eq:quarkPropagator}
+		iS^{(0)AB}_{ij}(x-y) \equiv \langle0|T\{q_i^A(x)\bar q_j^B(y)\}|0\rangle \equiv q_i^A(x)\bar q_j^B(y) = \delta_{ij}\delta^{AB}iS^{(0)}(x-y) 
+	\end{equation}
+	\begin{equation}	
+		iD^{(0)ab}_{\mu\nu}(x-y) \equiv \langle0|T\{B_\mu^a(x)B_\nu^b(y)\}|0\rangle \equiv B_\mu^a(x)B_\nu^b(y) \equiv i\delta^{ab}\int\frac{d^4k}{(2\pi)^4}D^{(0)}_{\mu\nu}(k)e^{-ik(x-y)} \\
+	\end{equation}
+	\begin{align}
+		&= i\delta^{ab}\int\frac{d^4k}{(2\pi)^4}\frac{1}{k^2+i\eta}\left[-g_{\mu\nu}+(1-a)\frac{k_\mu k_\nu}{k^2+i\eta}\right]e^{-k(x-y)}
+	\end{align}
+	\textcolor{red}{draw contractions}
+	
+
+
+

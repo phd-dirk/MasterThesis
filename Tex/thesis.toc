@@ -1,0 +1,18 @@
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}% 
+\contentsline {chapter}{\numberline {2}Fundamental Concepts}{4}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}QCD Basics}{4}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Dimensional Regularization}{7}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Renormalisation}{13}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Renormalisation Group Equation}{14}{section.2.4}% 
+\contentsline {chapter}{\numberline {3}Non-singlet Vector and Axialvector Correlators}{16}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Introduction}{16}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}4-point Green's Function With Operator Insertion}{20}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}V-A Current-current Diagram Contributions}{24}{section.3.3}% 
+\contentsline {subsection}{\numberline {3.3.1}V-A Anomalous Dimension Matrix}{42}{subsection.3.3.1}% 
+\contentsline {section}{\numberline {3.4}V+A Contribution}{42}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}V+A Anomalous Dimension Matrix}{52}{subsection.3.4.1}% 
+\contentsline {section}{\numberline {3.5}Confirming RGE}{52}{section.3.5}% 
+\contentsline {chapter}{\numberline {4}Outlook}{54}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Acknowledgments}{56}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Appendix}{57}{chapter.6}% 
+\contentsline {chapter}{\numberline {7}Bibliography}{61}{chapter.7}% 

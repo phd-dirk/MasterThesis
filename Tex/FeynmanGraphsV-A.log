@@ -1,0 +1,41 @@
+This is MetaPost, version 1.902 (TeX Live 2014) (kpathsea version 6.2.0)  2 AUG 2015 13:15
+**FeynmanGraphsV-A
+(/usr/local/texlive/2014/texmf-dist/metapost/base/mpost.mp
+(/usr/local/texlive/2014/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.005) ) (./FeynmanGraphsV-A.mp
+(/usr/local/texlive/2014/texmf-dist/metapost/feynmf/feynmp.mp)
+>> unknown string opt2arg
+! Not a string.
+<to be read again> 
+                   ,
+<for(2)> ...[(EXPR0)],scantokens(opt[(EXPR0)]arg),
+                                                  vlist[nfrom]arc[vlist[nfro...
+<for(__z)> ...on(opt[nopt],opt[nopt]arg);fi.endfor
+                                                  .handle_line_style(vlist[n...
+
+vconnect->...rom]arc.last]lsr;fi.nfrom:=nto;endfor
+                                                  .endgroup
+l.13 vconnect ("fermion, tension=1.5,", __y1, __z)
+                                                  ;
+? 
+! Emergency stop.
+<to be read again> 
+                   ,
+<for(2)> ...[(EXPR0)],scantokens(opt[(EXPR0)]arg),
+                                                  vlist[nfrom]arc[vlist[nfro...
+<for(__z)> ...on(opt[nopt],opt[nopt]arg);fi.endfor
+                                                  .handle_line_style(vlist[n...
+
+vconnect->...rom]arc.last]lsr;fi.nfrom:=nto;endfor
+                                                  .endgroup
+l.13 vconnect ("fermion, tension=1.5,", __y1, __z)
+                                                  ;
+End of file on the terminal!
+
+
+ 
+Here is how much of MetaPost's memory you used:
+ 301 strings using 4494 characters
+ 1511200 bytes of node memory
+ 923 symbolic tokens
+ 12i,77n,22p,114b,3f stack positions out of 16i,96n,25p,200b,4f

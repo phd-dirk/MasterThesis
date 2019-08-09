@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Anomalous Dimension Matrix}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{V-A Contribution (singlet)}{12}{0}{2}
+\beamer@subsectionintoc {2}{2}{V-A Contribution (octet)}{17}{0}{2}
+\beamer@subsectionintoc {2}{3}{V+A Contribution}{22}{0}{2}
+\beamer@sectionintoc {3}{Renormalization Group Equation}{34}{0}{3}
+\beamer@subsectionintoc {3}{1}{Renormalization Group Equation}{34}{0}{3}
+\beamer@sectionintoc {4}{Outlook}{38}{0}{4}
+\beamer@subsectionintoc {4}{1}{Outlook}{38}{0}{4}
+\beamer@sectionintoc {5}{References}{40}{0}{5}
